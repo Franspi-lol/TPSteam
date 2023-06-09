@@ -1,4 +1,4 @@
-public class VideoJuego
+public class VideoJuego extends Platform
 {
     private int id;
     private String name;
@@ -10,8 +10,13 @@ public class VideoJuego
     private boolean status;
     private int price; //20-60
 
+    public VideoJuego()
+    {
+    }
+
     public VideoJuego(int id, String name, String[] genre, String[] developer, String[] publisher, String release) //constructor con solo datos JSON
     {
+
         this.id = id;
         this.name = name;
         this.genre = genre;
@@ -20,18 +25,7 @@ public class VideoJuego
         this.release = release;
     }
 
-    public VideoJuego(int id, String name, String[] genre, String[] developer, String[] publisher, String release, int score, boolean status, int price)//constructor completo
-    {
-        this.id = id;
-        this.name = name;
-        this.genre = genre;
-        this.developer = developer;
-        this.publisher = publisher;
-        this.release = release;
-        this.score = score;
-        this.status = status;
-        this.price = price;
-    }
+
 
     public int getId() {
         return id;
