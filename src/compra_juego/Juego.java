@@ -5,11 +5,21 @@ public class Juego
     private String Gamelink;
     private String Game;
     private String Platform;
-    private int Year;
+    private Integer Year;
     private String PlatformLink;
-    private int Price;
+    private Integer Price;
 
-    public Juego(String gamelink, String game, String platform, int year, String platformLink, int price) {
+
+    /**
+     *
+     * @param gamelink
+     * @param game
+     * @param platform
+     * @param year
+     * @param platformLink
+     * @param price
+     */
+    public Juego(String gamelink, String game, String platform, Integer year, String platformLink, Integer price) {
         Gamelink = gamelink;
         Game = game;
         Platform = platform;
@@ -17,6 +27,7 @@ public class Juego
         PlatformLink = platformLink;
         Price = price;
     }
+
 
     public String getGamelink() {
         return Gamelink;
@@ -42,14 +53,15 @@ public class Juego
         Platform = platform;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return Year;
     }
 
-    public Juego() {
+    public Juego()
+    {
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         Year = year;
     }
 
@@ -61,11 +73,11 @@ public class Juego
         PlatformLink = platformLink;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         Price = price;
     }
 
