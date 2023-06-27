@@ -37,8 +37,9 @@ public class LecturaEscritura extends JsonUtiles
         return Juegos;
     }*/
 
-    public ArrayList<JuegoFuncional> leeJuego(String archivo)
+    public ArrayList<JuegoFuncional> leeJuego()
     {
+        String archivo="GamesPriced";
         ArrayList<JuegoFuncional> juegos=new ArrayList<>();
 
 
@@ -67,9 +68,9 @@ public class LecturaEscritura extends JsonUtiles
         return juegos;
     }
 
-    public ArrayList<JuegoFuncional> leeJuego1(String archivo)
+    public ArrayList<JuegoFuncional> leeJuego1(String archivo, ArrayList<JuegoFuncional> juegos)
     {
-        ArrayList<JuegoFuncional> juegos=new ArrayList<>();
+        //ArrayList<JuegoFuncional> juegos=new ArrayList<>();
 
 
         try {

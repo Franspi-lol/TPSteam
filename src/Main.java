@@ -19,11 +19,11 @@ public class Main
         ArrayList<JuegoFuncional> aux= new ArrayList<>();
        // File ps4=new File("PS4Games.json");
         //File XBOX=new File("XBOXGames.json");
-        //aux=lye.leeJuego1("PS4Games");
-        //aux=lye.leeJuego1("XBOXGames");
-        //aux=lye.retornarConPrecio(aux);
-        //lye.grabaJuegos(aux);
-        aux=lye.leeJuego("GamesPriced");
+        aux=lye.leeJuego1("PS4Games", aux);
+        aux=lye.leeJuego1("XBOXGames",aux);
+        aux=lye.retornarConPrecio(aux);
+        lye.grabaJuegos(aux);
+        aux=lye.leeJuego();
 
     }
 }
