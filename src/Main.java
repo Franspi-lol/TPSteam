@@ -1,7 +1,10 @@
 import Excepciones.ArchivoNoEncontradoException;
+import Genericas.ListaGenerica;
 import ManagerArchivos.LecturaEscritura;
 import compra_juego.Juego;
+import compra_juego.JuegoFuncional;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -13,12 +16,14 @@ public class Main
     public static void main(String[] args) throws FileNotFoundException, ArchivoNoEncontradoException
     {
         LecturaEscritura lye = new LecturaEscritura();
-        ArrayList<Juego> juegos=new ArrayList<>();
-        juegos=lye.leeJuego1("SteamGames");
-        juegos=lye.retornarConPrecio(juegos);
-        lye.grabaJuegos(juegos);
-        //juegos=lye.leeJuego("SteamGamesPriced");
-        //System.out.println(juegos.toString());
+        ArrayList<JuegoFuncional> aux= new ArrayList<>();
+       // File ps4=new File("PS4Games.json");
+        //File XBOX=new File("XBOXGames.json");
+        //aux=lye.leeJuego1("PS4Games");
+        //aux=lye.leeJuego1("XBOXGames");
+        //aux=lye.retornarConPrecio(aux);
+        //lye.grabaJuegos(aux);
+        aux=lye.leeJuego("GamesPriced");
 
     }
 }

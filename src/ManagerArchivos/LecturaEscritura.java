@@ -1,5 +1,8 @@
 package ManagerArchivos;
 
+import Excepciones.ArchivoNoEncontradoException;
+import Genericas.ListaGenerica;
+import com.google.gson.Gson;
 import compra_juego.Juego;
 import compra_juego.JuegoFuncional;
 import org.json.JSONArray;
@@ -8,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class LecturaEscritura extends JsonUtiles
@@ -33,9 +37,9 @@ public class LecturaEscritura extends JsonUtiles
         return Juegos;
     }*/
 
-    public ArrayList<Juego> leeJuego(String archivo)
+    public ArrayList<JuegoFuncional> leeJuego(String archivo)
     {
-        ArrayList<Juego> juegos=new ArrayList<>();
+        ArrayList<JuegoFuncional> juegos=new ArrayList<>();
 
 
         try {
@@ -44,12 +48,17 @@ public class LecturaEscritura extends JsonUtiles
             for (int i =0; i<jsonArray.length();i++)
             {
                 JSONObject jsonObjectJuegos =jsonArray.getJSONObject(i);
-                Juego juego = new Juego(jsonObjectJuegos.getString("GameLink"),
-                        jsonObjectJuegos.getString("Game"),
-                        jsonObjectJuegos.getString("Platform"),
-                        jsonObjectJuegos.getInt("Year"),
-                        jsonObjectJuegos.getString("PlatformLink"),
-                        jsonObjectJuegos.getInt("Price"));
+                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.getString("game"),
+                        jsonObjectJuegos.optString("gameLink", "null"),
+                        jsonObjectJuegos.optInt("year",0),
+                        jsonObjectJuegos.getString("genre"),
+
+                        jsonObjectJuegos.optString("dev", "null"),
+                        jsonObjectJuegos.optString("devLink", "null"),
+                        jsonObjectJuegos.optString("publisher","null"),
+                        jsonObjectJuegos.optString("publisherLink", "null"),
+                        jsonObjectJuegos.getString("platform"),
+                        jsonObjectJuegos.optString("platformLink","null"),jsonObjectJuegos.getInt("price") ) ;
                 juegos.add(juego);
             }
         } catch (JSONException e) {
@@ -70,16 +79,16 @@ public class LecturaEscritura extends JsonUtiles
             {
                 JSONObject jsonObjectJuegos =jsonArray.getJSONObject(i);
                 JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.getString("Game"),
-                        jsonObjectJuegos.getString("GameLink"),
+                        jsonObjectJuegos.optString("GameLink", "null"),
                         jsonObjectJuegos.optInt("Year",0),
                         jsonObjectJuegos.getString("Genre"),
 
-                        jsonObjectJuegos.getString("Dev"),
-                        jsonObjectJuegos.getString("DevLink"),
-                        jsonObjectJuegos.getString("Publisher"),
-                        jsonObjectJuegos.getString("PublisherLink"),
+                        jsonObjectJuegos.optString("Dev", "null"),
+                        jsonObjectJuegos.optString("DevLink", "null"),
+                        jsonObjectJuegos.optString("Publisher","null"),
+                        jsonObjectJuegos.optString("PublisherLink", "null"),
                         jsonObjectJuegos.getString("Platform"),
-                        jsonObjectJuegos.getString("PlatformLink"),0 ) ;
+                        jsonObjectJuegos.optString("PlatformLink","null"),0 ) ;
                 juegos.add(juego);
             }
         } catch (JSONException e) {
@@ -87,10 +96,10 @@ public class LecturaEscritura extends JsonUtiles
         }
         return juegos;
     }
-    public ArrayList<Juego> retornarConPrecio (ArrayList<Juego> juegosSinPrecio)
+    public ArrayList<JuegoFuncional> retornarConPrecio (ArrayList<JuegoFuncional> juegosSinPrecio)
     {
         Random random=new Random();
-        Juego aux=new Juego();
+        JuegoFuncional aux=new JuegoFuncional();
 
 
         for (int i=0;i<juegosSinPrecio.size();i++)
@@ -106,7 +115,7 @@ public class LecturaEscritura extends JsonUtiles
         return juegosSinPrecio;
     }
 
-    public void grabaJuegos (ArrayList<Juego> listadoJuegos)
+    public void grabaJuegos (ArrayList<JuegoFuncional> listadoJuegos)
     {
         JSONArray jsonArray=new JSONArray(listadoJuegos);
         //JSONObject jsonObjectJuegos=new JSONObject();
@@ -115,7 +124,7 @@ public class LecturaEscritura extends JsonUtiles
             //jsonObjectJuegos.put("Game", listadoJuegos);
             //jsonArray.put(listadoJuegos);
 
-            JsonUtiles.grabar(jsonArray,"SteamGamesPriced");
+            JsonUtiles.grabar(jsonArray,"GamesPriced");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
