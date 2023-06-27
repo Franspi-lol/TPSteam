@@ -36,9 +36,9 @@ public class LecturaEscritura extends JsonUtiles
         return Juegos;
     }*/
 
-    public ListaGenerica<Juego> leeJuego(String archivo)
+    public ArrayList<Juego> leeJuego(String archivo)
     {
-        ListaGenerica<Juego> juegos=new ListaGenerica<>();
+        ArrayList<Juego> juegos=new ArrayList<>();
 
 
         try {
@@ -53,7 +53,7 @@ public class LecturaEscritura extends JsonUtiles
                         jsonObjectJuegos.getInt("Year"),
                         jsonObjectJuegos.getString("PlatformLink"),
                         jsonObjectJuegos.getInt("Price"));
-                juegos.agregarLista(juego);
+                juegos.add(juego);
             }
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -106,7 +106,17 @@ public class LecturaEscritura extends JsonUtiles
 
     public void grabaJuegos (ArrayList<Juego> listadoJuegos)
     {
+        JSONArray jsonArray=new JSONArray(listadoJuegos);
+        //JSONObject jsonObjectJuegos=new JSONObject();
+        try {
 
+            //jsonObjectJuegos.put("Game", listadoJuegos);
+            //jsonArray.put(listadoJuegos);
+
+            JsonUtiles.grabar(jsonArray,"SteamGamesPriced");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

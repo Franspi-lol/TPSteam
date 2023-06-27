@@ -18,7 +18,9 @@ public class Main
         ArrayList<Juego> juegos=new ArrayList<>();
         juegos=lye.leeJuego1("SteamGames");
         juegos=lye.retornarConPrecio(juegos);
-        System.out.println(juegos.toString());
+        lye.grabaJuegos(juegos);
+        //juegos=lye.leeJuego("SteamGamesPriced");
+        //System.out.println(juegos.toString());
 
     }
 }

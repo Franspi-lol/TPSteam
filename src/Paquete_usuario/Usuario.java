@@ -2,7 +2,7 @@ package Paquete_usuario;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable
+public abstract class Usuario implements Serializable
 {
     private String nombre;
     private String apellido;
@@ -78,8 +78,8 @@ public class Usuario implements Serializable
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", usuario='" + usuario + '\'' +
-                ", contrasena='" + contrasena + '\'' +
+                ", contrasena='" + contrasena + '\''
 
-                '}';
+                ;
     }
 }
