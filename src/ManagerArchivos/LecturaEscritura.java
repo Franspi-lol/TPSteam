@@ -131,7 +131,7 @@ public class LecturaEscritura extends JsonUtiles
             //jsonObjectJuegos.put("Game", listadoJuegos);
             //jsonArray.put(listadoJuegos);
 
-            JsonUtiles.grabar(jsonArray,"GamesPricedTest");
+            JsonUtiles.grabar(jsonArray,"GamesPriced");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
