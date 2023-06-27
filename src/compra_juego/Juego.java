@@ -1,5 +1,8 @@
 package compra_juego;
 
+/**
+ * quedo irrelevante
+ */
 public class Juego
 {
     private String Gamelink;
