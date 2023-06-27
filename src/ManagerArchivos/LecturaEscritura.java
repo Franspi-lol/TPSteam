@@ -49,7 +49,7 @@ public class LecturaEscritura extends JsonUtiles
             for (int i =0; i<jsonArray.length();i++)
             {
                 JSONObject jsonObjectJuegos =jsonArray.getJSONObject(i);
-                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.getString("game"),
+                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.optString("game","null"),
                         jsonObjectJuegos.optString("gameLink", "null"),
                         jsonObjectJuegos.optInt("year",0),
                         jsonObjectJuegos.getString("genre"),
@@ -68,6 +68,12 @@ public class LecturaEscritura extends JsonUtiles
         return juegos;
     }
 
+    /**
+     * Es la utilizada para leer los json que no tienen el precio
+     * @param archivo
+     * @param juegos-array de juegos
+     * @return
+     */
     public ArrayList<JuegoFuncional> leeJuego1(String archivo, ArrayList<JuegoFuncional> juegos)
     {
         //ArrayList<JuegoFuncional> juegos=new ArrayList<>();
@@ -79,7 +85,7 @@ public class LecturaEscritura extends JsonUtiles
             for (int i =0; i<jsonArray.length();i++)
             {
                 JSONObject jsonObjectJuegos =jsonArray.getJSONObject(i);
-                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.getString("Game"),
+                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.optString("Game","null"),
                         jsonObjectJuegos.optString("GameLink", "null"),
                         jsonObjectJuegos.optInt("Year",0),
                         jsonObjectJuegos.getString("Genre"),
@@ -125,10 +131,23 @@ public class LecturaEscritura extends JsonUtiles
             //jsonObjectJuegos.put("Game", listadoJuegos);
             //jsonArray.put(listadoJuegos);
 
-            JsonUtiles.grabar(jsonArray,"GamesPriced");
+            JsonUtiles.grabar(jsonArray,"GamesPricedTest");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Para generar/reiniciar base de datos de juegos
+     */
+    public void guardarConPrecio ()
+    {
+        ArrayList<JuegoFuncional> aux= new ArrayList<>();
+        aux=leeJuego1("PS4Games", aux);
+        aux=leeJuego1("XBOXGames",aux);
+        aux=leeJuego1("SwitchGames", aux);
+        aux=retornarConPrecio(aux);
+        grabaJuegos(aux);
     }
 
 }
