@@ -1,14 +1,18 @@
 package Paquete_usuario;
 
+import Compania.Coleccion;
+import Interface.ICategoria;
 import compra_juego.Juego;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Jugador extends Usuario
+public class Jugador extends Usuario implements Serializable, ICategoria
 {
     private String mail;
     private boolean isActivo;
-    private HashMap<String, Juego> coleccion;
+    private Coleccion<String, Juego> coleccion;
+    private String categoria;
 
 
     public Jugador(String nombre, String apellido, String usuario, String contrasena, String mail, boolean isActivo) {
@@ -16,8 +20,8 @@ public class Jugador extends Usuario
         this.mail = mail;
         this.isActivo = isActivo;
         setId(getId());
-
-        coleccion=new HashMap<>();
+        setCategoria(categoria);
+        coleccion=new Coleccion<>();
     }
 
     public String getMail() {
@@ -32,15 +36,24 @@ public class Jugador extends Usuario
         return isActivo;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    @Override
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     public void setActivo(boolean activo) {
         isActivo = activo;
     }
 
-    public HashMap<String, Juego> getColeccion() {
+    public Coleccion<String, Juego> getColeccion() {
         return coleccion;
     }
 
-    public void setColeccion(HashMap<String, Juego> coleccion) {
+    public void setColeccion(Coleccion<String, Juego> coleccion) {
         this.coleccion = coleccion;
     }
 
