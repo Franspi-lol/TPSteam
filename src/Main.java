@@ -38,7 +38,7 @@ public class Main
         Steam steam = new Steam("Steamcito");
         lee (lye,steam);
         cargarAdmins(steam);
-        System.out.println("SuperMercado " + steam.getNombreSupermercado());
+        System.out.println("Steamcito " + steam.getNombreSupermercado());
         Usuario usr = Login(steam);
         Carrito<Compra> compra;
         if (usr instanceof Admin) {
@@ -47,23 +47,14 @@ public class Main
                 opc = scanner.nextInt();
                 scanner.nextLine();
                 switch (opc) {
+
                     case 1:
-                        try {
-                            nuevoProducto(steam);
-                        } catch (ArchivoNoEncontradoException e) {
-                            e.getMessage();
-                        }
+                        System.out.println(steam.muestraJuegos());
                         break;
                     case 2:
-                        System.out.println(steam.muestraProductos());
-                        break;
-                    case 3:
                         muestraPorCategoria(steam);
                         break;
-                    case 4:
-                        restockearProducto(steam);
-                        break;
-                    case 5:
+                    case 3:
                         bajaProducto(steam);
                         break;
                     case 6:
@@ -106,16 +97,16 @@ public class Main
                             scanner.nextLine();
                             switch (opcCompra) {
                                 case 1:
-                                    System.out.println(superMerca.muestraProductosParaCliente());
+                                    System.out.println(steam.muestraProductosParaCliente());
                                     break;
                                 case 2:
-                                    muestraPorCategoria(superMerca);
+                                    muestraPorCategoria(steam);
                                     break;
                                 case 3:
-                                    muestraProducto(superMerca);
+                                    muestraJuego(steam);
                                     break;
                                 case 4:
-                                    compra = realizarCompra(superMerca, compra);
+                                    compra = realizarCompra(steam, compra);
                                     break;
                                 case 5:
                                     System.out.println(compra);
@@ -130,21 +121,19 @@ public class Main
                                     System.out.println("COMPRA CANCELADA");
                                     break;
                                 case 8:
-                                    System.out.println(((Cliente) usr).muestraHistorialCompras());
+                                    System.out.println(((Jugador) usr).muestraHistorialCompras());
                                     break;
                             }
                         } while (opcCompra != 0);
                         break;
                     case 4:
-                        bajaClienteCliente (superMerca, lye);
+                        bajaClienteCliente (steam, lye);
                         break;
-                    case 5:
-                        comentar(superMerca);
-                        break;
+
                 }
             } while (opc != 0);
         }
-        graba(lye, superMerca);
+        graba(lye, steam);
     }
 
         public static void graba(LecturaEscritura lye, Steam steam){
@@ -209,10 +198,10 @@ public class Main
             usuario = scanner.nextLine();
         System.out.println("Contraseña");
         contrasena = scanner.nextLine();
-        usr = mercado.buscarUsuarioLogin(usuario, contrasena);
+        usr = steam.buscarUsuarioLogin(usuario, contrasena);
         if (usr != null) {
-            if (usr instanceof Cliente){
-                if (!((Cliente) usr).getActivo()){
+            if (usr instanceof Jugador){
+                if (!((Jugador) usr).isActivo()){
                     System.out.println("EL CLIENTE ESTA DADO DE BAJA");
                     System.exit(1);
                 }
@@ -225,8 +214,8 @@ public class Main
                 System.out.println("Desea crear un nuevo usuario? S/N");
                 opc = scanner.nextLine().charAt(0);
                 if (opc == 's' || opc == 'S') {
-                    usr = nuevoCliente(mercado);
-                    mercado.nuevoUsuario(usr);
+                    usr = nuevoCliente(steam);
+                    steam.nuevoUsuario(usr);
                     System.out.println("Cliente creado con exito!");
                 } else if (opc == 'n' || opc == 'N') {
                     System.out.println("Hasta pronto!");
@@ -236,43 +225,38 @@ public class Main
         return usr;
     }
 
-        public static Usuario nuevoCliente (Supermercado mercado){
+        public static Usuario nuevoCliente (Steam steam){
         boolean flag = false;
         String usuario;
-        Cliente cliente = new Cliente();
+        Jugador jugador = new Jugador();
         System.out.println("Nombre: ");
-        cliente.setNombre(scanner.nextLine());
+            jugador.setNombre(scanner.nextLine());
         System.out.println("Apellido: ");
-        cliente.setApellido(scanner.nextLine());
-        System.out.println("DNI");
-        cliente.setDni(scanner.nextLine());
+            jugador.setApellido(scanner.nextLine());
+
         do{
             System.out.println("E-Mail");
-            cliente.setMailUsuario(scanner.nextLine());
-            if (cliente.getMailCliente().contains("@")){
+            jugador.setMail(scanner.nextLine());
+            if (jugador.getMail().contains("@")){
                 flag = true;
             }else{
                 System.out.println("Error, mail no valido, reintente...");
             }
         }while (!flag);
-        System.out.println("Localidad: ");
-        cliente.setLocalidadCliente(scanner.nextLine());
-        System.out.println("Categoria: ");
-        cliente.setCategoria(scanner.nextLine());
         do{
             System.out.println("Nombre de usuario: ");
             usuario = scanner.nextLine();
-            if (mercado.buscarPorNombreUsuarioLogin(usuario)){
+            if (steam.buscarPorNombreUsuarioLogin(usuario)){
                 System.out.println("Error, usuario ya registrado.");
             }
             else{
-                cliente.setUsuario(usuario);
+                jugador.setUsuario(usuario);
             }
-        }while (mercado.buscarPorNombreUsuarioLogin(usuario));
+        }while (steam.buscarPorNombreUsuarioLogin(usuario));
         System.out.println("contraseña: ");
-        cliente.setContrasena(scanner.nextLine());
-        cliente.setActivo(true);
-        return cliente;
+        jugador.setContrasena(scanner.nextLine());
+        jugador.setActivo(true);
+        return jugador;
     }
 
         public static void cargarAdmins (Steam steam){
@@ -403,12 +387,12 @@ public class Main
         }
     }
 
-        public static void bajaCliente (Supermercado mercado){
+        public static void bajaCliente (Steam steam){
         String dni;
         boolean flag;
         System.out.println("Ingrese DNI de cliente: ");
         dni = scanner.nextLine();
-        flag = mercado.bajaDeCliente(dni);
+        flag = steam.bajaDeCliente(dni);
         if (!flag){
             System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE BAJA");
         }
@@ -417,32 +401,32 @@ public class Main
         }
     }
 
-        public static void bajaClienteCliente (Supermercado mercado, lecturaEscritura lye){
+        public static void bajaClienteCliente (Steam steam, LecturaEscritura lye){
         String dni;
         boolean flag;
         System.out.println("Ingrese DNI de cliente: ");
         dni = scanner.nextLine();
-        flag = mercado.bajaDeCliente(dni);
+        flag = steam.bajaDeCliente(dni);
         if (!flag){
             System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE BAJA");
         }
         else{
             System.out.println("CLIENTE DADO DE BAJA CON EXITO");
-            graba(lye, mercado);
+            graba(lye, steam);
             System.exit(1);
         }
     }
 
-        public static void altaCliente (Supermercado mercado){
+        public static void altaCliente (Steam steam){
         String dni;
         boolean flag;
 
-        if (mercado.muestraDadosDeBajaUsuarios().length()>0){
+        if (steam.muestraDadosDeBajaUsuarios().length()>0){
             System.out.println("CLIENTES DADOS DE BAJA");
-            System.out.println(mercado.muestraDadosDeBajaUsuarios());
+            System.out.println(steam.muestraDadosDeBajaUsuarios());
             System.out.println("Ingrese DNI del cliente: ");
             dni = scanner.nextLine();
-            flag = mercado.altaDeCliente(dni);
+            flag = steam.altaDeCliente(dni);
             if (!flag){
                 System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE ALTA");
             }
@@ -492,7 +476,7 @@ public class Main
             {
                 carrito.setPago(true);
                 carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
-                ((Cliente) usr).agregarHistorial(carrito);
+                ((Jugador) usr).agregarHistorial(carrito);
                 return true;
             }
             else
@@ -513,7 +497,7 @@ public class Main
         for (int i=0;i<unProducto.getLista().size();i++)
         {
 
-            total+=unProducto.getLista().get(i).getPrecioTotal();
+            total+=unProducto.getLista().get(i).getPrecio();
 
         }
         if (unProducto.getTipoPago().equals("Efectivo"))
@@ -548,26 +532,26 @@ public class Main
     }
 
         public static Carrito<Compra> realizarCompra(Steam steam, Carrito<Compra> carrito){
-        Compra compraProducto;
+        Compra compraJuego;
         Juego juego;
-        String nombreProducto;
+        String nombreJuego;
         int cantidad;
         boolean controlStock;
         char continuar;
         do {
             System.out.println("ingrese el producto que desee comprar:");
-            nombreProducto= scanner.nextLine();
-            compraProducto = new Compra();
+            nombreJuego= scanner.nextLine();
+            compraJuego = new Compra();
             juego = juego.buscarProducto(nombreProducto);
-            if(juego.getNombreProducto() != null){
+            if(juego.getGame() != null){
                 System.out.println("indique la cantidad a comprar:");
                 cantidad=scanner.nextInt();
                 scanner.nextLine();
 
                 if(juego.isActivo()==true){
-                    compraProducto.precioTotal(juego.getPrecioProducto(), cantidad);
-                    compraProducto.setProducto(juego);
-                    carrito.agregarCarrito(compraProducto);
+                    compraJuego.getPrecio();
+                    compraJuego.setCompra(juego);
+                    carrito.agregarCarrito(compraJuego);
                     System.out.println("cargado con exito!");
                 }
             else{
@@ -580,7 +564,8 @@ public class Main
         return carrito;
     }
 
-        public static void modificarDatos(Steam steam, Usuario usr) {
+        public static void modificarDatos(Steam steam, Usuario usr)
+            {
         int opc;
         boolean flag = false;
         do {

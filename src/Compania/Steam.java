@@ -94,13 +94,12 @@ public class Steam {
         return sb.toString();
     }
 
-    public String muestraProductos (){
+    public String muestraJuegos (){
         StringBuilder sb = new StringBuilder();
         for (Juego juego : listadoJuegos){
-            if (juego.isActivo()){
-                sb.append(juego.muestraJuegos());
+                sb.append(juego.getGame());
                 sb.append("\n");
-            }
+
         }
         return sb.toString();
     }
