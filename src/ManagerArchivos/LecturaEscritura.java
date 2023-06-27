@@ -1,16 +1,13 @@
 package ManagerArchivos;
 
-import Excepciones.ArchivoNoEncontradoException;
-import Genericas.ListaGenerica;
-import com.google.gson.Gson;
 import compra_juego.Juego;
+import compra_juego.JuegoFuncional;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class LecturaEscritura extends JsonUtiles
@@ -61,9 +58,9 @@ public class LecturaEscritura extends JsonUtiles
         return juegos;
     }
 
-    public ArrayList<Juego> leeJuego1(String archivo)
+    public ArrayList<JuegoFuncional> leeJuego1(String archivo)
     {
-        ArrayList<Juego> juegos=new ArrayList<>();
+        ArrayList<JuegoFuncional> juegos=new ArrayList<>();
 
 
         try {
@@ -72,12 +69,17 @@ public class LecturaEscritura extends JsonUtiles
             for (int i =0; i<jsonArray.length();i++)
             {
                 JSONObject jsonObjectJuegos =jsonArray.getJSONObject(i);
-                Juego juego = new Juego(jsonObjectJuegos.getString("GameLink"),
-                        jsonObjectJuegos.getString("Game"),
-                        jsonObjectJuegos.getString("Platform"),
+                JuegoFuncional juego = new JuegoFuncional(jsonObjectJuegos.getString("Game"),
+                        jsonObjectJuegos.getString("GameLink"),
                         jsonObjectJuegos.optInt("Year",0),
-                        jsonObjectJuegos.getString("PlatformLink"),
-                        0);
+                        jsonObjectJuegos.getString("Genre"),
+
+                        jsonObjectJuegos.getString("Dev"),
+                        jsonObjectJuegos.getString("DevLink"),
+                        jsonObjectJuegos.getString("Publisher"),
+                        jsonObjectJuegos.getString("PublisherLink"),
+                        jsonObjectJuegos.getString("Platform"),
+                        jsonObjectJuegos.getString("PlatformLink"),0 ) ;
                 juegos.add(juego);
             }
         } catch (JSONException e) {

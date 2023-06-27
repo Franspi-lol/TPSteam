@@ -1,6 +1,6 @@
 package compra_juego;
 
-public class Juego
+public class JuegoFuncional
 {
     private String Gamelink;
     private String Game;

@@ -1,9 +1,7 @@
 import Excepciones.ArchivoNoEncontradoException;
-import Genericas.ListaGenerica;
 import ManagerArchivos.LecturaEscritura;
 import compra_juego.Juego;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
