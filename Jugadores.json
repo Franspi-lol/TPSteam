@@ -37,5 +37,31 @@
     "usuario": "franspi",
     "contrasena": "a",
     "idUsuario": 0
+  },
+  {
+    "mail": "fra",
+    "isActivo": true,
+    "coleccion": {
+      "coleccion": {
+        "5 Star Wrestling: ReGenesis": {
+          "game": "5 Star Wrestling: ReGenesis",
+          "gameLink": "https://en.wikipedia.org/wiki/5_Star_Wrestling:_ReGenesis",
+          "year": 2016,
+          "genre": "Sports",
+          "dev": "Serious Parody",
+          "devLink": "null",
+          "publisher": "Serious Parody",
+          "publisherLink": "null",
+          "platform": "the Playstation 4",
+          "platformLink": "https://en.wikipedia.org/wiki/PlayStation_4",
+          "price": 48
+        }
+      }
+    },
+    "nombre": "franco2",
+    "apellido": "Bernar",
+    "usuario": "franspi",
+    "contrasena": "a",
+    "idUsuario": 0
   }
 ]

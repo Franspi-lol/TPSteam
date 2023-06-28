@@ -17,31 +17,28 @@ import java.util.*;
 
 public class LecturaEscritura extends JsonUtiles
 {
-   /* private final File fileUser = new File("usuarios.json");
-    private final File fileGameNoPrice = new File("SteamGames.json");
-    private final File fileGame = new File ("SteamGamesPriced.json");*/
-
-   /* public ArrayList<Juego> leeJuego (File fileJuegos) throws ArchivoNoEncontradoException, FileNotFoundException {//recibe el file, no nombre
-        ArrayList<Juego> Juegos=null;
+   public LinkedHashSet<Jugador> leeJugadores ()
+   {
+       LinkedHashSet<Jugador> jugadores = new LinkedHashSet<>();
+       String archivo = "Jugadores";
         try {
-            if (fileJuegos.length()>0)
+            String jsonArrayUsuarios = JsonUtiles.leer(archivo);
+            JSONArray jsonArray = new JSONArray(jsonArrayUsuarios);
+            for (int i=0; i < jsonArray.length();i++)
             {
-                BufferedReader lectura = new BufferedReader(new FileReader(fileJuegos));
-                Gson gson = new Gson();
-                Juego[] juego = gson.fromJson(lectura, Juego[].class);
-                Juegos = new ArrayList<>(Arrays.asList(juego));
 
             }
-        } catch (FileNotFoundException e) {
-            throw new FileNotFoundException();
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
-        return Juegos;
-    }*/
+
+       return jugadores;
+   }
 
     public void grabaJugadores (LinkedHashSet<Jugador> jugadores)
     {
         LinkedHashSet<Jugador> aux=new LinkedHashSet<>();
-        JSONArray jsonArray=new JSONArray();
+        //JSONArray jsonArray=new JSONArray();
        /* //JSONObject jsonObjectColeccion=new JSONObject();
         try {
             JsonUtiles.grabar(jsonArray,"Jugadores");
