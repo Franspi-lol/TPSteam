@@ -6,7 +6,6 @@ import Paquete_usuario.Admin;
 import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
 import compra_juego.Compra;
-import compra_juego.Juego;
 import compra_juego.JuegoFuncional;
 
 import java.io.FileNotFoundException;
@@ -24,7 +23,7 @@ public class Main
     public static void main(String[] args) throws FileNotFoundException, ArchivoNoEncontradoException
     {
         LecturaEscritura lye = new LecturaEscritura();
-        ArrayList<Juego> juegos=new ArrayList<>();
+        ArrayList<JuegoFuncional> juegos=new ArrayList<>();
         lye.guardarConPrecio();
 
 
@@ -52,25 +51,20 @@ public class Main
                     case 2:
                         muestraPorCategoria(steam);
                         break;
+
                     case 3:
-                        bajaProducto(steam);
-                        break;
-                    case 6:
-                        altaProducto(steam);
-                        break;
-                    case 7:
                         System.out.println(usr);
                         break;
-                    case 8:
+                    case 4:
                         System.out.println(steam.muestraUsuarios());
                         break;
-                    case 9:
+                    case 5:
                         buscaUsuario(steam);
                         break;
-                    case 10:
+                    case 6:
                         bajaCliente(steam);
                         break;
-                    case 11:
+                    case 7:
                         altaCliente(steam);
                         break;
                 }
@@ -119,7 +113,7 @@ public class Main
                                     System.out.println("COMPRA CANCELADA");
                                     break;
                                 case 8:
-                                    System.out.println(((Jugador) usr).muestraHistorialCompras());
+                                  //  System.out.println(((Jugador) usr).muestraHistorialCompras());
                                     break;
                             }
                         } while (opcCompra != 0);
@@ -136,12 +130,12 @@ public class Main
 
         public static void graba(LecturaEscritura lye, Steam steam){
         lye.grabaClientes(steam.getUsuarios());
-        lye.grabaProductos(steam.getListadoProductos());
+        lye.grabaProductos(steam.getListadoJuegos());
     }
 
         public static void lee (LecturaEscritura lye, Steam steam){
             steam.setUsuarios(lye.leeJugadores());
-            steam.setListadoProductos(lye.leeJuego());
+            steam.setListadoJuegos(lye.leeJuego());
     }
 
         public static void menuAdmin (){
@@ -258,7 +252,7 @@ public class Main
     }
 
         public static void cargarAdmins (Steam steam){
-        Usuario admin1 = new Admin("Juan Ignacio", "Zappulla", "41928220", "juani99", "8914122", "Jefe");
+        Usuario admin1 = new Admin("Ivan", "Badoza", "38697022", "ivanbadoza", "261294", "Jefe");
         Usuario admin2= new Admin("Nahuel Ariel","Zamudio","41542799","nahuel98","741852","jefe2");
             steam.nuevoUsuario(admin1);
             steam.nuevoUsuario(admin2);
@@ -349,11 +343,11 @@ public class Main
     }
     */
 
-
+/*
         public static void bajaProducto (Steam steam){
         String nombre;
         boolean flag;
-        Juego juego=new Juego();
+        JuegoFuncional juego=new JuegoFuncional();
         System.out.println("Ingrese el nombre del juego: ");
          nombre= scanner.nextLine();
         flag = steam.bajaDeProducto(nombre);
@@ -384,7 +378,7 @@ public class Main
             System.out.println("NO HAY PRODUCTOS DADOS DE BAJA");
         }
     }
-
+*/
         public static void bajaCliente (Steam steam){
         String dni;
         boolean flag;
@@ -474,7 +468,7 @@ public class Main
             {
                 carrito.setPago(true);
                 carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
-                ((Jugador) usr).agregarHistorial(carrito);
+                ((Jugador) usr).agregarColeccion(carrito);
                 return true;
             }
             else
