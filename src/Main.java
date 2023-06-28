@@ -22,8 +22,7 @@ public class Main
 
     private static Scanner scanner;
 
-    public static void main(String[] args) throws FileNotFoundException, ArchivoNoEncontradoException
-    {
+    public static void main(String[] args) throws FileNotFoundException, ArchivoNoEncontradoException, JuegoYaEnColeccionException {
         LecturaEscritura lye = new LecturaEscritura();
         ArrayList<JuegoFuncional> juegos=new ArrayList<>();
         lye.guardarConPrecio();
@@ -106,8 +105,8 @@ public class Main
                                     System.out.println(compra.getLista().toString());
                                     break;
                                 case 6:
-        //                            if (finCompra(compra, usr)){
-                                        compra = new Carrito<>();
+                                    if (finCompra(compra, usr)){
+                                        compra = new Carrito<>();}
 
                                     break;
                                 case 7:
@@ -486,9 +485,10 @@ public class Main
              //   carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
                 ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
                 aux1=carrito.getLista();
+
                 for (JuegoFuncional a : carrito.getLista())
                 {
-                    ((Jugador) usr).agregarColeccion(a);
+                    ((Jugador)usr).agregarColeccion(a);
                 }
                 //((Jugador) usr).agregarColeccion(carrito);
                 return true;

@@ -1,5 +1,8 @@
 package Paquete_usuario;
 
+import Excepciones.JuegoYaEnColeccionException;
+import compra_juego.JuegoFuncional;
+
 import java.io.Serializable;
 
 public abstract class Usuario implements Serializable
@@ -82,4 +85,6 @@ public abstract class Usuario implements Serializable
 
                 ;
     }
+
+    public abstract void agregarColeccion(JuegoFuncional a) throws JuegoYaEnColeccionException;
 }

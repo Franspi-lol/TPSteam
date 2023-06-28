@@ -1,5 +1,8 @@
 package Paquete_usuario;
 
+import Excepciones.JuegoYaEnColeccionException;
+import compra_juego.JuegoFuncional;
+
 import java.io.Serializable;
 
 public class Admin extends Usuario implements Serializable
@@ -34,6 +37,10 @@ public class Admin extends Usuario implements Serializable
                 '}';
     }
 
+    @Override
+    public void agregarColeccion(JuegoFuncional a) throws JuegoYaEnColeccionException {
+
+    }
 
 
 }
