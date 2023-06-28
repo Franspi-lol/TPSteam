@@ -1,8 +1,10 @@
 package Compania;
 
 import ManagerArchivos.LecturaEscritura;
+import Paquete_usuario.Admin;
+import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
-import compra_juego.Juego
+import compra_juego.Juego;
 
 import java.util.*;
 public class Steam {
@@ -44,21 +46,21 @@ public class Steam {
         }
     }
 
-    public String getNombreSupermercado() {
-        return nombreSupermercado;
+    public String getNombreSteam() {
+        return nombreSteam;
     }
 
     public void setNombreSupermercado(String nombreSupermercado) {
-        this.nombreSupermercado = nombreSupermercado;
+        this.nombreSteam = nombreSupermercado;
     }
 
     public Usuario buscarUsuarioLogin (String usr, String pass){
         for (Usuario usuario : usuarios){
             if (usuario.getUsuario().equals(usr)){
                 if (usuario.getContrasena().equals(pass)){
-                    if (usuario instanceof Cliente) {
-                        Cliente cliente = new Cliente();
-                        return cliente = (Cliente) usuario;
+                    if (usuario instanceof Jugador) {
+                        Jugador jugador = new Jugador();
+                        return jugador = (Jugador) usuario;
                     }
                     else if(usuario instanceof Admin){
                         Admin admin = new Admin();
@@ -83,8 +85,8 @@ public class Steam {
     public String muestraUsuarios() {
         StringBuilder sb = new StringBuilder();
         for (Usuario usuario : usuarios) {
-            if (usuario instanceof Cliente){
-                if (((Cliente) usuario).getActivo()){
+            if (usuario instanceof Jugador){
+                if (((Jugador) usuario).isActivo()){
                     sb.append("\n");
                     sb.append("[" + usuario + "]");
                     sb.append("\n");
@@ -106,45 +108,43 @@ public class Steam {
 
     public String muestraProductosParaCliente (){
         StringBuilder sb = new StringBuilder();
-        LecturaEscritura lye= new LecturaEscritura()
-        for (Juego juego : listadoProductos){
-            if (juego.isActivo()==true){
+        LecturaEscritura lye= new LecturaEscritura();
+        for (Juego juego : listadoJuegos){
+
                 sb.append(lye.leeJuego());
                 sb.append("\n");
-            }
+
         }
         return sb.toString();
     }
 
-    public String muestraProductosPorCategoria (String categoria){
+    public String muestraProductosPorCategoria (String plataforma){
         StringBuilder sb = new StringBuilder();
-        for (Producto producto : listadoProductos){
-            if (producto.getCategoria().equals(categoria)){
-                sb.append(producto.muestraProducto());
+        for (Juego juego : listadoJuegos){
+            if (juego.getPlatform().equals(plataforma)){
+                sb.append(juego.getGame());
                 sb.append("\n");
             }
         }
         return sb.toString();
     }
 
-    public String muestraProductosPorCategoriaCliente (String categoria){
+    public String muestraProductosPorCategoriaCliente (String plataforma){
         StringBuilder sb = new StringBuilder();
-        for (Producto producto : listadoProductos){
-            if (producto.getCategoria().equals(categoria)){
-                if (producto.isActivo() && producto.getStockProducto() > 0){
-                    sb.append(producto.muestraProducto());
+        for (Juego juego : listadoJuegos){
+            if (juego.getPlatform().equals(plataforma)){
+                       sb.append(juego.getGame());
                     sb.append("\n");
                 }
             }
-        }
         return sb.toString();
     }
 
-    public String buscaUnSoloProducto (String nombreProducto){
+    public String buscaUnSoloProducto (String nombreJuego){
         StringBuilder sb = new StringBuilder();
-        for (Producto producto : listadoProductos){
-            if (producto.getNombreProducto().equals(nombreProducto) && producto.isActivo()){
-                sb.append(producto);
+        for (Juego juego : listadoJuegos){
+            if (juego.getGame().equals(nombreJuego)){
+                sb.append(juego);
             }
         }
         return sb.toString();
@@ -153,7 +153,7 @@ public class Steam {
     public Juego buscarProducto (String nombreProducto){
         Juego aux = new Juego();
         for (Juego producto : listadoJuegos){
-            if (aux.getGame().equals(nombreProducto) && producto.isActivo()){
+            if (aux.getGame().equals(nombreProducto)){
                 aux = producto;
             }
         }
@@ -170,18 +170,18 @@ public class Steam {
         return usr;
     }
 
-    public boolean BuscaProducto (int id){
+    public boolean BuscaProducto (String nombreJuego){
         boolean flag = false;
-        for (Producto producto : listadoProductos){
-            if (producto.getIdProducto() == id){
-                if (producto.isActivo()){
+        for (Juego juego : listadoJuegos){
+            if (juego.getGame().equals(nombreJuego)){
+
                     flag = true;
                 }
             }
-        }
+
         return flag;
     }
-
+/*
     public boolean restockProducto (int id, int cantidad){
         boolean flag = false;
         for (Producto producto : listadoProductos){
@@ -193,7 +193,8 @@ public class Steam {
         }
         return flag;
     }
-
+*/
+    /*
     public boolean bajaDeProducto (String nombre){
         boolean flag = false;
         for (Juego juego : listadoProductos){
@@ -230,14 +231,14 @@ public class Steam {
         }
         return flag;
     }
-
-    public boolean bajaDeCliente(String dni){
+*/
+    public boolean bajaDeCliente(String nombreUsuario){
         boolean flag = false;
         for (Usuario usuarioAux: usuarios){
-            if (usuarioAux.getDni().equals(dni)){
-                if (usuarioAux instanceof Cliente){
-                    if (((Cliente) usuarioAux).getActivo()){
-                        ((Cliente) usuarioAux).setActivo(false);
+            if (usuarioAux.getUsuario().equals(nombreUsuario)){
+                if (usuarioAux instanceof Jugador){
+                    if (((Jugador) usuarioAux).isActivo()){
+                        ((Jugador) usuarioAux).setActivo(false);
                         flag = true;
                     }
                 }
@@ -249,8 +250,8 @@ public class Steam {
     public String muestraDadosDeBajaUsuarios() {
         StringBuilder sb = new StringBuilder();
         for (Usuario usuario : usuarios) {
-            if (usuario instanceof Cliente){
-                if (!((Cliente) usuario).getActivo()){
+            if (usuario instanceof Jugador){
+                if (!((Jugador) usuario).isActivo()){
                     sb.append("\n");
                     sb.append("[" + usuario + "]");
                     sb.append("\n");
@@ -260,13 +261,13 @@ public class Steam {
         return sb.toString();
     }
 
-    public boolean altaDeCliente(String dni){
+    public boolean altaDeCliente(String nombreUsuario){
         boolean flag = false;
         for (Usuario usuarioAux: usuarios){
-            if (usuarioAux instanceof Cliente) {
-                if (usuarioAux.getDni().equals(dni)) {
-                    if (!((Cliente) usuarioAux).getActivo()) {
-                        ((Cliente) usuarioAux).setActivo(true);
+            if (usuarioAux instanceof Jugador) {
+                if (usuarioAux.getUsuario().equals(nombreUsuario)) {
+                    if (!((Jugador) usuarioAux).isActivo()) {
+                        ((Jugador) usuarioAux).setActivo(true);
                         flag = true;
                     }
                 }
@@ -278,10 +279,10 @@ public class Steam {
     public int buscarJuegoNombre(String nombreJuego) {
         int i=0, encontrado =-1;
         boolean flag = false;
-        Producto unProducto;
-        while(i<listadoProductos.size() && !flag){
-            unProducto = listadoProductos.get(i);
-            if(unProducto.getNombreProducto().equals(nombreProducto) && unProducto.isActivo()) {
+        Juego unJuego;
+        while(i<listadoJuegos.size() && !flag){
+            unJuego = listadoJuegos.get(i);
+            if(unJuego.getGame().equals(nombreJuego)) {
                 flag = true;
                 encontrado = i;
             }
@@ -299,6 +300,7 @@ public class Steam {
         listadoJuegos.get(i).setComentario(comentario);
     }
 */
+    /*
     public boolean controlStrockProducto (int idProducto, int cantidad) {
         boolean flag = false;
         int aux = 0;
@@ -315,5 +317,5 @@ public class Steam {
         return flag;
     }
 
-
+*/
 }

@@ -35,7 +35,7 @@ public class Main
         Steam steam = new Steam("Steamcito");
         lee (lye,steam);
         cargarAdmins(steam);
-        System.out.println("Steamcito " + steam.getNombreSupermercado());
+        System.out.println("Steamcito " + steam.getNombreSteam());
         Usuario usr = Login(steam);
         Carrito<Compra> compra;
         if (usr instanceof Admin) {

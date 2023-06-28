@@ -5,7 +5,6 @@ import Interface.ICategoria;
 import compra_juego.Juego;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 public class Jugador extends Usuario implements Serializable, ICategoria
 {
@@ -15,7 +14,7 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     private String categoria;
 
 
-    public Jugador(String nombre, String apellido, String usuario, String contrasena, String mail, boolean isActivo) {
+    public Jugador() {
         super(nombre, apellido, usuario, contrasena);
         this.mail = mail;
         this.isActivo = isActivo;
