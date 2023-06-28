@@ -8,9 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.LinkedHashSet;
 
 import java.util.*;
@@ -19,6 +18,7 @@ public class LecturaEscritura extends JsonUtiles
 {
    public LinkedHashSet<Jugador> leeJugadores ()
    {
+       /*
        LinkedHashSet<Jugador> jugadores = new LinkedHashSet<>();
        String archivo = "Jugadores";
         try {
@@ -32,6 +32,23 @@ public class LecturaEscritura extends JsonUtiles
             throw new RuntimeException(e);
         }
 
+       return jugadores;
+
+        */
+       File fileJugadores=new File("Jugadores.json");
+       LinkedHashSet<Jugador> jugadores = null;
+       try {
+           if (fileJugadores.length()>0)
+           {
+               BufferedReader lectura = new BufferedReader(new FileReader(fileJugadores));
+               Gson gson = new Gson();
+               Jugador jugador[] = gson.fromJson(lectura, Jugador[].class);
+               jugadores = new LinkedHashSet<>(Arrays.asList(jugador));
+           }
+
+       } catch (FileNotFoundException e) {
+           throw new RuntimeException(e);
+       }
        return jugadores;
    }
 
