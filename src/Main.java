@@ -51,25 +51,20 @@ public class Main
                     case 2:
                         muestraPorCategoria(steam);
                         break;
+
                     case 3:
-                        bajaProducto(steam);
-                        break;
-                    case 6:
-                        altaProducto(steam);
-                        break;
-                    case 7:
                         System.out.println(usr);
                         break;
-                    case 8:
+                    case 4:
                         System.out.println(steam.muestraUsuarios());
                         break;
-                    case 9:
+                    case 5:
                         buscaUsuario(steam);
                         break;
-                    case 10:
+                    case 6:
                         bajaCliente(steam);
                         break;
-                    case 11:
+                    case 7:
                         altaCliente(steam);
                         break;
                 }
@@ -118,7 +113,7 @@ public class Main
                                     System.out.println("COMPRA CANCELADA");
                                     break;
                                 case 8:
-                                    System.out.println(((Jugador) usr).muestraHistorialCompras());
+                                  //  System.out.println(((Jugador) usr).muestraHistorialCompras());
                                     break;
                             }
                         } while (opcCompra != 0);
