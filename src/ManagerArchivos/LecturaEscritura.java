@@ -5,6 +5,10 @@ import compra_juego.JuegoFuncional;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.LinkedHashSet;
 
 import java.util.*;
 
@@ -34,12 +38,16 @@ public class LecturaEscritura extends JsonUtiles
     public void grabaJugadores (LinkedHashSet<Jugador> jugadores)
     {
         LinkedHashSet<Jugador> aux=new LinkedHashSet<>();
-        JSONArray jsonArray=new JSONArray(jugadores);
+        JSONArray jsonArray=new JSONArray();
+       /* //JSONObject jsonObjectColeccion=new JSONObject();
         try {
             JsonUtiles.grabar(jsonArray,"Jugadores");
         }catch (Exception e) {
         throw new RuntimeException(e);
-    }
+    }*/
+        try {
+            objectMapper.writeValue
+        }
     }
 
     /**

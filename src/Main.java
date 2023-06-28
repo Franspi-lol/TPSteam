@@ -253,7 +253,7 @@ public class Main
 
         public static void cargarAdmins (Steam steam){
         Usuario admin1 = new Admin("Ivan", "Badoza", "38697022", "ivanbadoza", "261294", "Jefe");
-        Usuario admin2= new Admin("Nahuel Ariel","Zamudio","41542799","nahuel98","741852","jefe2");
+        Admin admin2= new Admin();
             steam.nuevoUsuario(admin1);
             steam.nuevoUsuario(admin2);
     }
