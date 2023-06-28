@@ -6,7 +6,6 @@ import Paquete_usuario.Admin;
 import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
 import compra_juego.Compra;
-import compra_juego.Juego;
 import compra_juego.JuegoFuncional;
 
 import java.io.FileNotFoundException;
@@ -24,7 +23,7 @@ public class Main
     public static void main(String[] args) throws FileNotFoundException, ArchivoNoEncontradoException
     {
         LecturaEscritura lye = new LecturaEscritura();
-        ArrayList<Juego> juegos=new ArrayList<>();
+        ArrayList<JuegoFuncional> juegos=new ArrayList<>();
         lye.guardarConPrecio();
 
 
@@ -349,11 +348,11 @@ public class Main
     }
     */
 
-
+/*
         public static void bajaProducto (Steam steam){
         String nombre;
         boolean flag;
-        Juego juego=new Juego();
+        JuegoFuncional juego=new JuegoFuncional();
         System.out.println("Ingrese el nombre del juego: ");
          nombre= scanner.nextLine();
         flag = steam.bajaDeProducto(nombre);
@@ -384,7 +383,7 @@ public class Main
             System.out.println("NO HAY PRODUCTOS DADOS DE BAJA");
         }
     }
-
+*/
         public static void bajaCliente (Steam steam){
         String dni;
         boolean flag;
