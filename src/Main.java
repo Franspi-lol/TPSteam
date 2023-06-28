@@ -300,12 +300,13 @@ public class Main
             juegos = lye.leeJuego();
             for (JuegoFuncional a : juegos)
             {
-                if (a.getGame().equals(nombre));
+                if (a.getGame().equals(nombre))
                 {
                     juego=a.toString();
                 }
             }
-        if (juego!=null){
+        if (juego!=null)
+        {
             System.out.println(juego);
         }
         else{
