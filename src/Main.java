@@ -24,11 +24,8 @@ public class Main
     {
         LecturaEscritura lye = new LecturaEscritura();
         ArrayList<Juego> juegos=new ArrayList<>();
-        juegos=lye.leeJuego1("SteamGames");
-        juegos=lye.retornarConPrecio(juegos);
-        lye.grabaJuegos(juegos);
-        //juegos=lye.leeJuego("SteamGamesPriced");
-        //System.out.println(juegos.toString());
+        lye.guardarConPrecio();
+
 
         Scanner scanner;
 
