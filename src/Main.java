@@ -29,7 +29,7 @@ public class Main
         lye.guardarConPrecio();
 
 
-        Scanner scanner;
+
 
 
         int opc, opcCompra;
@@ -37,7 +37,7 @@ public class Main
         Steam steam = new Steam("Steamcito");
         lee (lye,steam);
         cargarAdmins(steam);
-        System.out.println("Steamcito " + steam.getNombreSteam());
+        System.out.println(steam.getNombreSteam());
         Usuario usr = Login(steam);
         Carrito<JuegoFuncional> compra;
         if (usr instanceof Admin) {
@@ -106,9 +106,9 @@ public class Main
                                     System.out.println(compra);
                                     break;
                                 case 6:
-                                    if (finCompra(compra, usr)){
+        //                            if (finCompra(compra, usr)){
                                         compra = new Carrito<>();
-                                    }
+
                                     break;
                                 case 7:
                                     compra = cancelarCompra();
@@ -476,13 +476,13 @@ public class Main
                 }
             }while(tipoPago==0);
 
-            System.out.println("EL TOTAL A PAGAR ES:" + formato.format(PrecioTotalConDescuento(carrito)));
+       //     System.out.println("EL TOTAL A PAGAR ES:" + formato.format(PrecioTotalConDescuento(carrito)));
             System.out.println("PARA REALIZAR EL PAGO PRESIONE 1, DE LO CONTRARIO PRESIONE 2: ");
             aux=scanner.nextInt();
             if(aux==1)
             {
                 carrito.setPago(true);
-                carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
+             //   carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
                 ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
                 aux1=carrito.getLista();
                 for (JuegoFuncional a : carrito.getLista())

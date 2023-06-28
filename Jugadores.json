@@ -63,5 +63,23 @@
     "usuario": "franspi",
     "contrasena": "a",
     "idUsuario": 0
+  },
+  {
+    "mail": "ivan@hotmail.com",
+    "isActivo": true,
+    "nombre": "ivan",
+    "apellido": "badoza",
+    "usuario": "ivo",
+    "contrasena": "1234",
+    "idUsuario": 4
+  },
+  {
+    "mail": "ifvas@fsa.com",
+    "isActivo": true,
+    "nombre": "ao",
+    "apellido": "asd",
+    "usuario": "ewq",
+    "contrasena": "re",
+    "idUsuario": 5
   }
 ]
