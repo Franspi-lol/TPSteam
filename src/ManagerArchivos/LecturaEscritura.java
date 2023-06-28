@@ -1,12 +1,15 @@
 package ManagerArchivos;
 
 import Paquete_usuario.Jugador;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import compra_juego.JuegoFuncional;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 
@@ -45,8 +48,13 @@ public class LecturaEscritura extends JsonUtiles
         }catch (Exception e) {
         throw new RuntimeException(e);
     }*/
-        try {
-            objectMapper.writeValue
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json=gson.toJson(jugadores);
+        try(FileWriter writer= new FileWriter("Jugadores.json"))
+        {
+            gson.toJson(jugadores,writer);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
