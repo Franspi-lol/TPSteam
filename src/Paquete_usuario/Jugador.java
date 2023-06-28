@@ -17,6 +17,8 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     private Coleccion<String, JuegoFuncional> coleccion;
     private String categoria;
 
+    public Jugador() {
+    }
 
     public Jugador(String nombre, String apellido, String usuario, String contrasena, String mail, boolean isActivo) {
         super(nombre, apellido, usuario, contrasena);

@@ -130,12 +130,12 @@ public class Main
 
         public static void graba(LecturaEscritura lye, Steam steam){
         lye.grabaClientes(steam.getUsuarios());
-        lye.grabaProductos(steam.getListadoProductos());
+        lye.grabaProductos(steam.getListadoJuegos());
     }
 
         public static void lee (LecturaEscritura lye, Steam steam){
             steam.setUsuarios(lye.leeJugadores());
-            steam.setListadoProductos(lye.leeJuego());
+            steam.setListadoJuegos(lye.leeJuego());
     }
 
         public static void menuAdmin (){
@@ -252,7 +252,7 @@ public class Main
     }
 
         public static void cargarAdmins (Steam steam){
-        Usuario admin1 = new Admin("Juan Ignacio", "Zappulla", "41928220", "juani99", "8914122", "Jefe");
+        Usuario admin1 = new Admin("Ivan", "Badoza", "38697022", "ivanbadoza", "261294", "Jefe");
         Usuario admin2= new Admin("Nahuel Ariel","Zamudio","41542799","nahuel98","741852","jefe2");
             steam.nuevoUsuario(admin1);
             steam.nuevoUsuario(admin2);
@@ -468,7 +468,7 @@ public class Main
             {
                 carrito.setPago(true);
                 carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
-                ((Jugador) usr).agregarHistorial(carrito);
+                ((Jugador) usr).agregarColeccion(carrito);
                 return true;
             }
             else
