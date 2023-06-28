@@ -7,6 +7,7 @@ import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
 import compra_juego.Compra;
 import compra_juego.Juego;
+import compra_juego.JuegoFuncional;
 
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
@@ -530,7 +531,7 @@ public class Main
 
         public static Carrito<Compra> realizarCompra(Steam steam, Carrito<Compra> carrito){
         Compra compraJuego;
-        Juego juego;
+        JuegoFuncional juego;
         String nombreJuego;
         int cantidad;
         boolean controlStock;
@@ -539,13 +540,11 @@ public class Main
             System.out.println("ingrese el producto que desee comprar:");
             nombreJuego= scanner.nextLine();
             compraJuego = new Compra();
-            juego = juego.buscarProducto(nombreProducto);
+             juego= steam.buscarProducto(nombreJuego);
             if(juego.getGame() != null){
-                System.out.println("indique la cantidad a comprar:");
-                cantidad=scanner.nextInt();
-                scanner.nextLine();
-
-                if(juego.isActivo()==true){
+                //System.out.println("indique la cantidad a comprar:");
+              //  cantidad=scanner.nextInt();
+              //  scanner.nextLine();
                     compraJuego.getPrecio();
                     compraJuego.setCompra(juego);
                     carrito.agregarCarrito(compraJuego);
@@ -631,5 +630,5 @@ public class Main
     }
 */
 
-    }
+
 }

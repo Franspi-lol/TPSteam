@@ -4,13 +4,13 @@ import ManagerArchivos.LecturaEscritura;
 import Paquete_usuario.Admin;
 import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
-import compra_juego.Juego;
+import compra_juego.JuegoFuncional;
 
 import java.util.*;
 public class Steam {
     private String nombreSteam;
     private LinkedHashSet<Usuario> usuarios;
-    private ArrayList<Juego> listadoJuegos;
+    private ArrayList<JuegoFuncional> listadoJuegos;
 
     public Steam(String nombreSteam) {
         this.nombreSteam = nombreSteam;
@@ -22,15 +22,15 @@ public class Steam {
         usuarios.add(usuario);
     }
 
-    public void nuevoJuego (Juego juego){
+    public void nuevoJuego (JuegoFuncional juego){
         listadoJuegos.add(juego);
     }
 
-    public ArrayList<Juego> getListadoJuegos() {
+    public ArrayList<JuegoFuncional> getListadoJuegos() {
         return listadoJuegos;
     }
 
-    public void setListadoJuegos(ArrayList<Juego> listadoJuegos) {
+    public void setListadoJuegos(ArrayList<JuegoFuncional> listadoJuegos) {
         if(listadoJuegos != null){
             this.listadoJuegos = listadoJuegos;
         }
@@ -98,7 +98,7 @@ public class Steam {
 
     public String muestraJuegos (){
         StringBuilder sb = new StringBuilder();
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
                 sb.append(juego.getGame());
                 sb.append("\n");
 
@@ -109,7 +109,7 @@ public class Steam {
     public String muestraProductosParaCliente (){
         StringBuilder sb = new StringBuilder();
         LecturaEscritura lye= new LecturaEscritura();
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
 
                 sb.append(lye.leeJuego());
                 sb.append("\n");
@@ -120,7 +120,7 @@ public class Steam {
 
     public String muestraProductosPorCategoria (String plataforma){
         StringBuilder sb = new StringBuilder();
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
             if (juego.getPlatform().equals(plataforma)){
                 sb.append(juego.getGame());
                 sb.append("\n");
@@ -131,7 +131,7 @@ public class Steam {
 
     public String muestraProductosPorCategoriaCliente (String plataforma){
         StringBuilder sb = new StringBuilder();
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
             if (juego.getPlatform().equals(plataforma)){
                        sb.append(juego.getGame());
                     sb.append("\n");
@@ -142,7 +142,7 @@ public class Steam {
 
     public String buscaUnSoloProducto (String nombreJuego){
         StringBuilder sb = new StringBuilder();
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
             if (juego.getGame().equals(nombreJuego)){
                 sb.append(juego);
             }
@@ -150,11 +150,11 @@ public class Steam {
         return sb.toString();
     }
 
-    public Juego buscarProducto (String nombreProducto){
-        Juego aux = new Juego();
-        for (Juego producto : listadoJuegos){
-            if (aux.getGame().equals(nombreProducto)){
-                aux = producto;
+    public JuegoFuncional buscarProducto (String nombreJuego){
+        JuegoFuncional aux = new JuegoFuncional();
+        for (JuegoFuncional juego : listadoJuegos){
+            if (aux.getGame().equals(nombreJuego)){
+                aux = juego;
             }
         }
         return aux;
@@ -172,7 +172,7 @@ public class Steam {
 
     public boolean BuscaProducto (String nombreJuego){
         boolean flag = false;
-        for (Juego juego : listadoJuegos){
+        for (JuegoFuncional juego : listadoJuegos){
             if (juego.getGame().equals(nombreJuego)){
 
                     flag = true;
@@ -279,7 +279,7 @@ public class Steam {
     public int buscarJuegoNombre(String nombreJuego) {
         int i=0, encontrado =-1;
         boolean flag = false;
-        Juego unJuego;
+        JuegoFuncional unJuego;
         while(i<listadoJuegos.size() && !flag){
             unJuego = listadoJuegos.get(i);
             if(unJuego.getGame().equals(nombreJuego)) {

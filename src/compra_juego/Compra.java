@@ -19,7 +19,7 @@ public class Compra
     {
         return nombreJuego+precio;
     }
-    public void setCompra(JuegoNOUSAR juego)
+    public void setCompra(JuegoFuncional juego)
     {
         nombreJuego=juego.getGame();
         precioJuego=juego.getPrice();
