@@ -3,7 +3,7 @@ package compra_juego;
 /**
  * quedo irrelevante
  */
-public class Juego
+public class JuegoNOUSAR
 {
     private String Gamelink;
     private String Game;
@@ -22,7 +22,7 @@ public class Juego
      * @param platformLink
      * @param price
      */
-    public Juego(String gamelink, String game, String platform, Integer year, String platformLink, Integer price) {
+    public JuegoNOUSAR(String gamelink, String game, String platform, Integer year, String platformLink, Integer price) {
         Gamelink = gamelink;
         Game = game;
         Platform = platform;
@@ -60,7 +60,7 @@ public class Juego
         return Year;
     }
 
-    public Juego()
+    public JuegoNOUSAR()
     {
     }
 

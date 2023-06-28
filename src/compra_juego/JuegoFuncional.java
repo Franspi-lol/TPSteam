@@ -140,7 +140,7 @@ public class JuegoFuncional
 
     @Override
     public String toString() {
-        return "Juego {" +
+        return "\nJuego {" +
                 "game='" + game + '\'' +
                 ", gameLink='" + gameLink + '\'' +
                 ", year=" + year +
@@ -152,6 +152,6 @@ public class JuegoFuncional
                 ", platform='" + platform + '\'' +
                 ", platformLink='" + platformLink + '\'' +
                 ", price=" + price +
-                '}';
+                '}'+"\n";
     }
 }

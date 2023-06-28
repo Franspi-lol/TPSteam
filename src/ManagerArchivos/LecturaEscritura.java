@@ -1,24 +1,18 @@
 package ManagerArchivos;
 
-import Excepciones.ArchivoNoEncontradoException;
-import Genericas.ListaGenerica;
-import com.google.gson.Gson;
-import compra_juego.Juego;
+import Paquete_usuario.Jugador;
 import compra_juego.JuegoFuncional;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class LecturaEscritura extends JsonUtiles
 {
-    private final File fileUser = new File("usuarios.json");
+   /* private final File fileUser = new File("usuarios.json");
     private final File fileGameNoPrice = new File("SteamGames.json");
-    private final File fileGame = new File ("SteamGamesPriced.json");
+    private final File fileGame = new File ("SteamGamesPriced.json");*/
 
    /* public ArrayList<Juego> leeJuego (File fileJuegos) throws ArchivoNoEncontradoException, FileNotFoundException {//recibe el file, no nombre
         ArrayList<Juego> Juegos=null;
@@ -37,6 +31,21 @@ public class LecturaEscritura extends JsonUtiles
         return Juegos;
     }*/
 
+    public void grabaJugadores (LinkedHashSet<Jugador> jugadores)
+    {
+        LinkedHashSet<Jugador> aux=new LinkedHashSet<>();
+        JSONArray jsonArray=new JSONArray(jugadores);
+        try {
+            JsonUtiles.grabar(jsonArray,"Jugadores");
+        }catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+    }
+
+    /**
+     * Lee los juegos de la base de datos (GamesPriced.json)
+     * @return - ArrayList<JuegoFuncional></>
+     */
     public ArrayList<JuegoFuncional> leeJuego()
     {
         String archivo="GamesPriced";

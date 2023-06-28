@@ -9,7 +9,7 @@ public class Compra
     public Compra() {
     }
 
-    public Compra(Juego juego, int precio) {
+    public Compra(JuegoNOUSAR juego, int precio) {
         nombreJuego = juego.getGame();
         precioJuego= juego.getPrice();
         this.precio = precio;
@@ -19,7 +19,7 @@ public class Compra
     {
         return nombreJuego+precio;
     }
-    public void setCompra(Juego juego)
+    public void setCompra(JuegoNOUSAR juego)
     {
         nombreJuego=juego.getGame();
         precioJuego=juego.getPrice();

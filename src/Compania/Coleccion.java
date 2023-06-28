@@ -2,6 +2,7 @@ package Compania;
 
 import Excepciones.JuegoYaEnColeccionException;
 import Interface.ICategoria;
+import compra_juego.JuegoFuncional;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,7 +21,7 @@ public class Coleccion<K,V>
         coleccion=new HashMap<>();
     }
 
-    public boolean agregarAColeccion (K key, V value) throws JuegoYaEnColeccionException
+    public boolean agregarAColeccion (K key, V variable) throws JuegoYaEnColeccionException
     {
         boolean agregado = false;
         if (coleccion.containsKey(key))
@@ -29,7 +30,7 @@ public class Coleccion<K,V>
         }
         else
         {
-            coleccion.put(key,value);
+            coleccion.put(key,variable);
             agregado=true;
         }
         return agregado;
@@ -43,6 +44,7 @@ public class Coleccion<K,V>
     {
         return coleccion.entrySet().iterator();
     }
+
 
 
 }
