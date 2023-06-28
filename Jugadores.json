@@ -1,1 +1,41 @@
-[{"mail":"fra","coleccion":{"iterator":"java.util.HashMap$EntryIterator@15327b79"},"apellido":"B","idUsuario":0,"usuario":"Fran","contrasena":"a","id":0,"nombre":"Franco1","activo":true},{"mail":"fra","coleccion":{"iterator":"java.util.HashMap$EntryIterator@722c41f4"},"apellido":"B","idUsuario":0,"usuario":"Fran","contrasena":"a","id":0,"nombre":"Franco2","activo":true}]
+[
+  {
+    "mail": "fra",
+    "isActivo": true,
+    "coleccion": {
+      "coleccion": {
+        "Air Conflicts: Pacific Carriers": {
+          "game": "Air Conflicts: Pacific Carriers",
+          "gameLink": "https://en.wikipedia.org/wiki/Air_Conflicts:_Pacific_Carriers",
+          "year": 2015,
+          "genre": "Flight simulator",
+          "dev": "Games Farm",
+          "devLink": "null",
+          "publisher": "Kalypso Media",
+          "publisherLink": "https://en.wikipedia.org/wiki/Kalypso_Media",
+          "platform": "the Playstation 4",
+          "platformLink": "https://en.wikipedia.org/wiki/PlayStation_4",
+          "price": 40
+        },
+        "5 Star Wrestling: ReGenesis": {
+          "game": "5 Star Wrestling: ReGenesis",
+          "gameLink": "https://en.wikipedia.org/wiki/5_Star_Wrestling:_ReGenesis",
+          "year": 2016,
+          "genre": "Sports",
+          "dev": "Serious Parody",
+          "devLink": "null",
+          "publisher": "Serious Parody",
+          "publisherLink": "null",
+          "platform": "the Playstation 4",
+          "platformLink": "https://en.wikipedia.org/wiki/PlayStation_4",
+          "price": 48
+        }
+      }
+    },
+    "nombre": "franco",
+    "apellido": "Bernar",
+    "usuario": "franspi",
+    "contrasena": "a",
+    "idUsuario": 0
+  }
+]

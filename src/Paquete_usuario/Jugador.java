@@ -20,6 +20,15 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public Jugador() {
     }
 
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param usuario
+     * @param contrasena
+     * @param mail
+     * @param isActivo
+     */
     public Jugador(String nombre, String apellido, String usuario, String contrasena, String mail, boolean isActivo) {
         super(nombre, apellido, usuario, contrasena);
         this.mail = mail;
