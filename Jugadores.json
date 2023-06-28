@@ -81,5 +81,14 @@
     "usuario": "ewq",
     "contrasena": "re",
     "idUsuario": 5
+  },
+  {
+    "mail": "prueba@",
+    "isActivo": true,
+    "nombre": "prueba",
+    "apellido": "",
+    "usuario": "prueba",
+    "contrasena": "prueba",
+    "idUsuario": 6
   }
 ]

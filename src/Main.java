@@ -300,7 +300,7 @@ public class Main
             juegos = lye.leeJuego();
             for (JuegoFuncional a : juegos)
             {
-                if (a.getGame()==nombre)
+                if (a.getGame().equals(nombre));
                 {
                     juego=a.toString();
                 }
