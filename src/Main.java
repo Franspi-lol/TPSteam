@@ -11,6 +11,7 @@ import compra_juego.JuegoFuncional;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -129,7 +130,7 @@ public class Main
     }
 
         public static void graba(LecturaEscritura lye, Steam steam){
-        lye.grabaJugadores(steam.getUsuarios()));
+        lye.grabaJugadores(steam.getUsuarios());
         lye.grabaJuegos(steam.getListadoJuegos());
     }
 
@@ -292,9 +293,11 @@ public class Main
         LecturaEscritura lye= new LecturaEscritura();
         String nombre;
         String juego;
+        ArrayList<JuegoFuncional> juegos = new ArrayList<>();
         System.out.println("INGRESE NOMBRE DEL JUEGO: ");
         nombre = scanner.nextLine();
-            juego = lye.leeJuego("GamesPriced");
+            juegos = lye.leeJuego();
+
         if (juego.length()>0){
             System.out.println(juego);
         }

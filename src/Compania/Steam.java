@@ -9,7 +9,7 @@ import compra_juego.JuegoFuncional;
 import java.util.*;
 public class Steam {
     private String nombreSteam;
-    private LinkedHashSet<Usuario> usuarios;
+    private LinkedHashSet<Jugador> usuarios;
     private ArrayList<JuegoFuncional> listadoJuegos;
 
     public Steam(String nombreSteam) {
@@ -36,11 +36,11 @@ public class Steam {
         }
     }
 
-    public LinkedHashSet<Usuario> getUsuarios() {
+    public LinkedHashSet<Jugador> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(LinkedHashSet<Usuario> usuarios) {
+    public void setUsuarios(LinkedHashSet<Jugador> usuarios) {
         if (usuarios != null){
             this.usuarios = usuarios;
         }
