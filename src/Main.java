@@ -129,8 +129,8 @@ public class Main
     }
 
         public static void graba(LecturaEscritura lye, Steam steam){
-        lye.grabaClientes(steam.getUsuarios());
-        lye.grabaProductos(steam.getListadoJuegos());
+        lye.grabaJugadores(steam.));
+        lye.grabaJuegos(steam.getListadoJuegos());
     }
 
         public static void lee (LecturaEscritura lye, Steam steam){
