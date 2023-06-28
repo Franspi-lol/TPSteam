@@ -67,6 +67,23 @@
   {
     "mail": "ivan@hotmail.com",
     "isActivo": true,
+    "coleccion": {
+      "coleccion": {
+        "AFL Evolution 2": {
+          "game": "AFL Evolution 2",
+          "gameLink": "null",
+          "year": 2020,
+          "genre": "Sports",
+          "dev": "Wicked Witch Software",
+          "devLink": "null",
+          "publisher": "Tru Blu Games",
+          "publisherLink": "null",
+          "platform": "the Switch",
+          "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+          "price": 44
+        }
+      }
+    },
     "nombre": "ivan",
     "apellido": "badoza",
     "usuario": "ivo",
@@ -85,6 +102,36 @@
   {
     "mail": "prueba@",
     "isActivo": true,
+    "coleccion": {
+      "coleccion": {
+        "AFL Evolution 2": {
+          "game": "AFL Evolution 2",
+          "gameLink": "null",
+          "year": 2020,
+          "genre": "Sports",
+          "dev": "Wicked Witch Software",
+          "devLink": "null",
+          "publisher": "Tru Blu Games",
+          "publisherLink": "null",
+          "platform": "the Switch",
+          "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+          "price": 56
+        },
+        "Agent A: A Puzzle in Disguise": {
+          "game": "Agent A: A Puzzle in Disguise",
+          "gameLink": "https://en.wikipedia.org/wiki/Agent_A:_A_Puzzle_in_Disguise",
+          "year": 2019,
+          "genre": "Puzzle",
+          "dev": "Yak",
+          "devLink": "null",
+          "publisher": "Yak",
+          "publisherLink": "null",
+          "platform": "the Switch",
+          "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+          "price": 59
+        }
+      }
+    },
     "nombre": "prueba",
     "apellido": "",
     "usuario": "prueba",

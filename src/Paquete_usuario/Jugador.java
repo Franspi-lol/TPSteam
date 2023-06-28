@@ -67,6 +67,17 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public Coleccion<String, JuegoFuncional> getColeccion() {
         return coleccion;
     }
+    public boolean EstadoColeccion()
+    {
+        if (coleccion!=null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public void setColeccion(Coleccion<String, JuegoFuncional> coleccion) {
         this.coleccion = coleccion;
@@ -111,9 +122,28 @@ public class Jugador extends Usuario implements Serializable, ICategoria
         }
         return devolver;
      }
+
+    /**
+     * USAR SI JUGADOR NO TIENE COLECCION PREVIA
+     * @param juego
+     * @throws JuegoYaEnColeccionException
+     */
     public void agregarColeccion (JuegoFuncional juego) throws JuegoYaEnColeccionException
     {
+        coleccion=new Coleccion<>();
         coleccion.agregarAColeccion(juego.getGame(),juego);
     }
+
+    /**
+     * Si jugador ya tenia coleccion
+     * @param juego
+     * @throws JuegoYaEnColeccionException
+     */
+    public void agregarColeccionConColeccion (JuegoFuncional juego) throws JuegoYaEnColeccionException
+    {
+        //coleccion=new Coleccion<>();
+        coleccion.agregarAColeccion(juego.getGame(),juego);
+    }
+
 
 }

@@ -37,9 +37,9 @@ public class Main
         lee (lye,steam);
         cargarAdmins(steam);
         System.out.println(steam.getNombreSteam());
-        Usuario usr = Login(steam);
+        Jugador usr = (Jugador) Login(steam);
         Carrito<JuegoFuncional> compra;
-        if (usr instanceof Admin) {
+        if (/*usr instanceof Admin*/1==2) {
             do {
                 menuAdmin();
                 opc = scanner.nextInt();
@@ -105,7 +105,7 @@ public class Main
                                     System.out.println(compra.getLista().toString());
                                     break;
                                 case 6:
-                                    if (finCompra(compra, usr)){
+                                    if (finCompra(compra, (Jugador) usr)){
                                         compra = new Carrito<>();}
 
                                     break;
@@ -446,7 +446,7 @@ public class Main
         }
     }
 
-        public static boolean finCompra(Carrito<JuegoFuncional>carrito, Usuario usr) throws JuegoYaEnColeccionException {
+        public static boolean finCompra(Carrito<JuegoFuncional>carrito, Jugador usr) throws JuegoYaEnColeccionException {
         int tipoPago;
         int aux;
         DecimalFormat formato = new DecimalFormat("#.##");
@@ -485,11 +485,20 @@ public class Main
              //   carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
                 ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
                 aux1=carrito.getLista();
-
-                for (JuegoFuncional a : carrito.getLista())
+                if (usr.EstadoColeccion())
                 {
-                    ((Jugador)usr).agregarColeccion(a);
+                    for (JuegoFuncional a : carrito.getLista())
+                    {
+                        ((Jugador)usr).agregarColeccionConColeccion(a);
+                    }
+                }else
+                {
+                    for (JuegoFuncional a : carrito.getLista())
+                    {
+                        ((Jugador)usr).agregarColeccion(a);
+                    }
                 }
+
                 //((Jugador) usr).agregarColeccion(carrito);
                 return true;
             }
