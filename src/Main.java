@@ -103,7 +103,7 @@ public class Main
                                     compra = realizarCompra(steam, compra);
                                     break;
                                 case 5:
-                                    System.out.println(compra);
+                                    System.out.println(compra.getLista().toString());
                                     break;
                                 case 6:
         //                            if (finCompra(compra, usr)){
@@ -561,7 +561,7 @@ public class Main
                 //System.out.println("indique la cantidad a comprar:");
               //  cantidad=scanner.nextInt();
               //  scanner.nextLine();
-                    compraJuego.getPrice();
+                    compraJuego=juego;
                     compraJuego.getGame();
                     carrito.agregarCarrito(compraJuego);
                     System.out.println("cargado con exito!");

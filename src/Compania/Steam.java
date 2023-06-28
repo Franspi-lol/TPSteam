@@ -154,7 +154,7 @@ public class Steam {
     public JuegoFuncional buscarProducto (String nombreJuego){
         JuegoFuncional aux = new JuegoFuncional();
         for (JuegoFuncional juego : listadoJuegos){
-            if (aux.getGame().equals(nombreJuego)){
+            if (juego.getGame().equals(nombreJuego)){
                 aux = juego;
             }
         }
