@@ -129,7 +129,7 @@ public class Main
     }
 
         public static void graba(LecturaEscritura lye, Steam steam){
-        lye.grabaJugadores(steam.));
+        lye.grabaJugadores(steam.getUsuarios()));
         lye.grabaJuegos(steam.getListadoJuegos());
     }
 
@@ -206,8 +206,9 @@ public class Main
                 System.out.println("Desea crear un nuevo usuario? S/N");
                 opc = scanner.nextLine().charAt(0);
                 if (opc == 's' || opc == 'S') {
-                    usr = nuevoCliente(steam);
-                    steam.nuevoUsuario(usr);
+                    Jugador aux = new Jugador();
+                    aux = nuevoCliente(steam);
+                    steam.nuevoUsuario(aux);
                     System.out.println("Cliente creado con exito!");
                 } else if (opc == 'n' || opc == 'N') {
                     System.out.println("Hasta pronto!");
@@ -217,7 +218,7 @@ public class Main
         return usr;
     }
 
-        public static Usuario nuevoCliente (Steam steam){
+        public static Jugador nuevoCliente (Steam steam){
         boolean flag = false;
         String usuario;
         Jugador jugador = new Jugador();
@@ -251,11 +252,15 @@ public class Main
         return jugador;
     }
 
-        public static void cargarAdmins (Steam steam){
-        Usuario admin1 = new Admin("Ivan", "Badoza", "38697022", "ivanbadoza", "261294", "Jefe");
-        Admin admin2= new Admin();
-            steam.nuevoUsuario(admin1);
-            steam.nuevoUsuario(admin2);
+        public static ArrayList<Admin> cargarAdmins (Steam steam){
+        ArrayList<Admin> aux=new ArrayList<>();
+        Admin admin1 = new Admin("Ivan", "Badoza", "Ivo", "ivo", "Jefe");
+        Admin admin2= new Admin("Franco", "Bernardele", "Bernar", "ber", "Jefe");
+        aux.add(admin2);
+        aux.add(admin1);
+        return aux;
+
+
     }
 /*
         public static void nuevoProducto (Supermercado mercado) {

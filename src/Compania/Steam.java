@@ -18,7 +18,7 @@ public class Steam {
         listadoJuegos = new ArrayList<>();
     }
 
-    public void nuevoUsuario (Usuario usuario){
+    public void nuevoUsuario (Jugador usuario){
         usuarios.add(usuario);
     }
 
