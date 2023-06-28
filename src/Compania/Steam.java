@@ -319,12 +319,17 @@ public class Steam {
     }
 
 */
+
+    /**
+     * Para reiniciar las bases de datos
+     */
     public void reiniciarPrograma ()
     {
         LecturaEscritura lye=new LecturaEscritura();
         lye.guardarConPrecio();
         File file = new File("Jugadores.json");
-
+        LinkedHashSet<Jugador> a=new LinkedHashSet<>();
+        lye.grabaJugadores(a);
 
     }
 }
