@@ -33,4 +33,10 @@ public class Admin extends Usuario implements Serializable
                 "cargo='" + cargo + '\'' +
                 '}';
     }
+
+    public void reiniciarPrograma ()
+    {
+
+    }
+
 }

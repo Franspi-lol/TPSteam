@@ -9,6 +9,7 @@ import compra_juego.JuegoFuncional;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 public class Jugador extends Usuario implements Serializable, ICategoria
 {
@@ -77,6 +78,19 @@ public class Jugador extends Usuario implements Serializable, ICategoria
 
         return nuevaCompra();
     }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return isActivo == jugador.isActivo && Objects.equals(mail, jugador.mail) && Objects.equals(coleccion, jugador.coleccion) && Objects.equals(categoria, jugador.categoria);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mail, isActivo, coleccion, categoria);
+    }
 
     @Override
     public String toString() {
