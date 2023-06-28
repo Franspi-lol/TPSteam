@@ -1,21 +1,20 @@
 package Compania;
 
-import ManagerArchivos.LecturaEscritura;
 import Paquete_usuario.Usuario;
-import compra_juego.Juego
+import compra_juego.JuegoNOUSAR;
 
 import java.util.*;
 public class Steam {
     private String nombreSteam;
     private LinkedHashSet<Usuario> usuarios;
-    private ArrayList<Juego> listadoJuegos;
+    private ArrayList<JuegoNOUSAR> listadoJuegos;
 
     public Steam(String nombreSteam) {
         this.nombreSteam = nombreSteam;
         usuarios = new LinkedHashSet<>();
         listadoJuegos = new ArrayList<>();
     }
-
+/*
     public void nuevoUsuario (Usuario usuario){
         usuarios.add(usuario);
     }
@@ -299,6 +298,7 @@ public class Steam {
         listadoJuegos.get(i).setComentario(comentario);
     }
 */
+    /*
     public boolean controlStrockProducto (int idProducto, int cantidad) {
         boolean flag = false;
         int aux = 0;
@@ -314,6 +314,6 @@ public class Steam {
         }
         return flag;
     }
-
+*/
 
 }

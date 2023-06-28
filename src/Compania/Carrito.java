@@ -15,7 +15,7 @@ public class Carrito<T>
     private ArrayList<T> lista;
     private double precioTotalCompra;
 
-}
+
     public Carrito() {
         idCarrito = ++id;
         lista = new ArrayList<T>();

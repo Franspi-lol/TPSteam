@@ -1,17 +1,20 @@
 package Paquete_usuario;
 
 import Compania.Coleccion;
+import Excepciones.JuegoYaEnColeccionException;
 import Interface.ICategoria;
-import compra_juego.Juego;
+import compra_juego.JuegoNOUSAR;
+import compra_juego.JuegoFuncional;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Jugador extends Usuario implements Serializable, ICategoria
 {
     private String mail;
     private boolean isActivo;
-    private Coleccion<String, Juego> coleccion;
+    private Coleccion<String, JuegoFuncional> coleccion;
     private String categoria;
 
 
@@ -49,11 +52,11 @@ public class Jugador extends Usuario implements Serializable, ICategoria
         isActivo = activo;
     }
 
-    public Coleccion<String, Juego> getColeccion() {
+    public Coleccion<String, JuegoFuncional> getColeccion() {
         return coleccion;
     }
 
-    public void setColeccion(Coleccion<String, Juego> coleccion) {
+    public void setColeccion(Coleccion<String, JuegoFuncional> coleccion) {
         this.coleccion = coleccion;
     }
 
@@ -68,14 +71,24 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public String toString() {
         return  super.toString()+
                 "mail='" + mail + '\'' +
-                ", isActivo=" + isActivo +
-                //", coleccion=" + coleccion +
-                '}';
+                ", isActivo=" + isActivo +'}'+"\n"+
+                muestraColeccion()
+                ;
     }
      public String muestraColeccion()
      {
-        String aux= new String();
-        return aux;
+         String devolver=new String();
+        Iterator iterator=coleccion.getIterator();
+        while (iterator.hasNext())
+        {
+            Map.Entry entry=(Map.Entry) iterator.next();
+            devolver=devolver+entry.toString();
+        }
+        return devolver;
      }
+    public void agregarColeccion (JuegoFuncional juego) throws JuegoYaEnColeccionException
+    {
+        coleccion.agregarAColeccion(juego.getGame(),juego);
+    }
 
 }
