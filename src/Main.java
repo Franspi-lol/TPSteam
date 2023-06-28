@@ -1,6 +1,7 @@
 import Compania.Carrito;
 import Compania.Steam;
 import Excepciones.ArchivoNoEncontradoException;
+import Excepciones.JuegoYaEnColeccionException;
 import ManagerArchivos.LecturaEscritura;
 import Paquete_usuario.Admin;
 import Paquete_usuario.Jugador;
@@ -38,7 +39,7 @@ public class Main
         cargarAdmins(steam);
         System.out.println("Steamcito " + steam.getNombreSteam());
         Usuario usr = Login(steam);
-        Carrito<Compra> compra;
+        Carrito<JuegoFuncional> compra;
         if (usr instanceof Admin) {
             do {
                 menuAdmin();
@@ -445,7 +446,7 @@ public class Main
         }
     }
 
-        public static boolean finCompra(Carrito<Compra>carrito, Usuario usr){
+        public static boolean finCompra(Carrito<JuegoFuncional>carrito, Usuario usr) throws JuegoYaEnColeccionException {
         int tipoPago;
         int aux;
         DecimalFormat formato = new DecimalFormat("#.##");
@@ -482,7 +483,13 @@ public class Main
             {
                 carrito.setPago(true);
                 carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
-                ((Jugador) usr).agregarColeccion(carrito);
+                ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
+                aux1=carrito.getLista();
+                for (JuegoFuncional a : carrito.getLista())
+                {
+                    ((Jugador) usr).agregarColeccion(a);
+                }
+                //((Jugador) usr).agregarColeccion(carrito);
                 return true;
             }
             else
@@ -533,12 +540,12 @@ public class Main
         return descuentoAplicado;
     }
 
-        public static Carrito<Compra> cancelarCompra(){
+        public static Carrito<JuegoFuncional> cancelarCompra(){
         return new Carrito<>();
     }
 
-        public static Carrito<Compra> realizarCompra(Steam steam, Carrito<Compra> carrito){
-        Compra compraJuego;
+        public static Carrito<JuegoFuncional> realizarCompra(Steam steam, Carrito<JuegoFuncional> carrito){
+        JuegoFuncional compraJuego;
         JuegoFuncional juego;
         String nombreJuego;
         int cantidad;
@@ -547,14 +554,14 @@ public class Main
         do {
             System.out.println("ingrese el producto que desee comprar:");
             nombreJuego= scanner.nextLine();
-            compraJuego = new Compra();
+            compraJuego = new JuegoFuncional();
              juego= steam.buscarProducto(nombreJuego);
             if(juego.getGame() != null){
                 //System.out.println("indique la cantidad a comprar:");
               //  cantidad=scanner.nextInt();
               //  scanner.nextLine();
-                    compraJuego.getPrecio();
-                    compraJuego.setCompra(juego);
+                    compraJuego.getPrice();
+                    compraJuego.getGame();
                     carrito.agregarCarrito(compraJuego);
                     System.out.println("cargado con exito!");
                 }

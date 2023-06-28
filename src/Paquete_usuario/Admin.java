@@ -34,9 +34,6 @@ public class Admin extends Usuario implements Serializable
                 '}';
     }
 
-    public void reiniciarPrograma ()
-    {
 
-    }
 
 }

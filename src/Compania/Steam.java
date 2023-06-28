@@ -6,6 +6,7 @@ import Paquete_usuario.Jugador;
 import Paquete_usuario.Usuario;
 import compra_juego.JuegoFuncional;
 
+import java.io.File;
 import java.util.*;
 public class Steam {
     private String nombreSteam;
@@ -318,4 +319,12 @@ public class Steam {
     }
 
 */
+    public void reiniciarPrograma ()
+    {
+        LecturaEscritura lye=new LecturaEscritura();
+        lye.guardarConPrecio();
+        File file = new File("Jugadores.json");
+
+
+    }
 }
