@@ -292,17 +292,23 @@ public class Main
         public static void muestraJuego(Steam steam){
         LecturaEscritura lye= new LecturaEscritura();
         String nombre;
-        String juego;
+        String juego = null;
         ArrayList<JuegoFuncional> juegos = new ArrayList<>();
         System.out.println("INGRESE NOMBRE DEL JUEGO: ");
         nombre = scanner.nextLine();
             juegos = lye.leeJuego();
-
-        if (juego.length()>0){
+            for (JuegoFuncional a : juegos)
+            {
+                if (a.getGame()==nombre)
+                {
+                    juego=a.toString();
+                }
+            }
+        if (juego!=null){
             System.out.println(juego);
         }
         else{
-            System.out.println("NO SE ENCUENTRA EL JUEGO O FUE DADO DE BAJA...");
+            System.out.println("NO SE ENCUENTRA EL JUEGO");
         }
     }
 
