@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Compania"},{"l":"compra_juego"},{"l":"Excepciones"},{"l":"Interface"},{"l":"ManagerArchivos"},{"l":"Paquete_usuario"}];updateSearchResults();
