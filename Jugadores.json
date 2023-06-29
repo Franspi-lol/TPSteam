@@ -172,5 +172,14 @@
     "usuario": "prueba",
     "contrasena": "aaa",
     "idUsuario": 7
+  },
+  {
+    "mail": "sd@",
+    "isActivo": true,
+    "nombre": "ads",
+    "apellido": "sdf",
+    "usuario": "Fra",
+    "contrasena": "sad",
+    "idUsuario": 8
   }
 ]

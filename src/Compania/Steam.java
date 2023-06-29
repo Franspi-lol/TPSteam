@@ -280,8 +280,8 @@ public class Steam implements IMuestra {
     {
         LecturaEscritura lye=new LecturaEscritura();
         lye.guardarConPrecio();
-        File file = new File("Jugadores.json");
-        LinkedHashSet<Jugador> a=null;
+        //File file = new File("Jugadores.json");
+        LinkedHashSet<Jugador> a=new LinkedHashSet<>();
 
         lye.grabaJugadores(a);
 

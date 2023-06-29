@@ -219,7 +219,7 @@ public class Main
                 opc = scanner.nextLine().charAt(0);
                 if (opc == 's' || opc == 'S') {
                     Jugador aux = new Jugador();
-                    aux = nuevoCliente(steam);
+                    aux = nuevoCliente(steam, admin);
                     steam.nuevoUsuario(aux);
                     System.out.println("Cliente creado con exito!");
                 } else if (opc == 'n' || opc == 'N') {
@@ -230,7 +230,7 @@ public class Main
         return usr;
     }
 
-        public static Jugador nuevoCliente (Steam steam){
+        public static Jugador nuevoCliente (Steam steam, Admin admin){
         boolean flag = false;
         String usuario;
         Jugador jugador = new Jugador();
@@ -251,13 +251,13 @@ public class Main
         do{
             System.out.println("Nombre de usuario: ");
             usuario = scanner.nextLine();
-            if (steam.buscarPorNombreUsuarioLogin(usuario)){
+            if (steam.buscarPorNombreUsuarioLogin(usuario)||usuario.equals(admin.getUsuario())){
                 System.out.println("Error, usuario ya registrado.");
             }
             else{
                 jugador.setUsuario(usuario);
             }
-        }while (steam.buscarPorNombreUsuarioLogin(usuario));
+        }while (steam.buscarPorNombreUsuarioLogin(usuario)||usuario.equals(admin.getUsuario()));
         System.out.println("contraseña: ");
         jugador.setContrasena(scanner.nextLine());
         jugador.setActivo(true);
