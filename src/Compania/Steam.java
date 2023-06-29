@@ -7,6 +7,7 @@ import Paquete_usuario.Usuario;
 import compra_juego.JuegoFuncional;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 public class Steam {
     private String nombreSteam;
@@ -352,8 +353,10 @@ public class Steam {
         LecturaEscritura lye=new LecturaEscritura();
         lye.guardarConPrecio();
         File file = new File("Jugadores.json");
-        LinkedHashSet<Jugador> a=new LinkedHashSet<>();
+        LinkedHashSet<Jugador> a=null;
+
         lye.grabaJugadores(a);
+
 
     }
 }

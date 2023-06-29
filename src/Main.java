@@ -68,6 +68,12 @@ public class Main
                     case 7:
                         altaCliente(steam);
                         break;
+
+                    case 8:
+                        steam.reiniciarPrograma();
+                        System.out.println("Vuelva pronto :)");
+                        opc=0;
+                        //break;
                 }
             } while (opc != 0);
         } else if (usr instanceof Jugador) {
@@ -122,6 +128,9 @@ public class Main
                     case 4:
                         bajaClienteCliente (steam, lye);
                         break;
+                    case 5:
+                        System.out.println(((Jugador) usr).muestraColeccion());
+                        break;
 
                 }
             } while (opc != 0);
@@ -141,17 +150,14 @@ public class Main
 
         public static void menuAdmin (){
         System.out.println("MENU ADMINISTRADOR: ");
-        System.out.println("1. AGREGA PRODUCTO");
-        System.out.println("2. VER LISTA PRODUCTOS");
-        System.out.println("3. VER LISTA PRODUCTOS POR CATEGORIA");
-        System.out.println("4. RENOVAR STOCK DE UN PRODUCTO");
-        System.out.println("5. DAR DE BAJA UN PRODUCTO");
-        System.out.println("6. DAR DE ALTA UN PRODUCTO");
-        System.out.println("7. VER USUARIO ADMINISTRADOR");
-        System.out.println("8. VER LISTA CLIENTES");
-        System.out.println("9. BUSCAR CLIENTE");
-        System.out.println("10. DAR DE BAJA UN CLIENTE");
-        System.out.println("11. DAR DE ALTA UN CLIENTE");
+        System.out.println("1. MUESTRA JUEGOS");
+        System.out.println("2. MUESTRA JUEGOS POR PLAT");
+        System.out.println("3. MUESTRA ADMIN");
+        System.out.println("4. VER LISTA JUGADORES");
+        System.out.println("5. BUSCAR USUARIO");
+        System.out.println("6. BAJA USUARIO");
+        System.out.println("7. ALTA USUARIO");
+        System.out.println("8. REINICIAR BASES DE DATOS");
         System.out.println("0. SALIR");
         System.out.println("SELECCIONE UNA OPCION: ");
     }
@@ -162,6 +168,7 @@ public class Main
         System.out.println("2. VER JUGADOR ACTUAL");
         System.out.println("3. COMPRAR");
         System.out.println("4. DAR DE BAJA LA CUENTA");
+        System.out.println("5. MOSTRAR COLECCION JUEGOS");
         System.out.println("0. SALIR");
         System.out.println("SELECCIONE UNA OPCION: ");
     }
@@ -340,7 +347,7 @@ public class Main
 
         public static void buscaUsuario(Steam steam) {
         String usuario;
-        System.out.println("INGRESE DNI DE USUARIO: ");
+        System.out.println("INGRESE USUARIO: ");
         usuario = scanner.nextLine();
         Usuario usr = steam.buscarUsuario(usuario);
         if ( usr instanceof Jugador) {
@@ -415,7 +422,7 @@ public class Main
         public static void bajaCliente (Steam steam){
         String dni;
         boolean flag;
-        System.out.println("Ingrese DNI de cliente: ");
+        System.out.println("Ingrese Usuario: ");
         dni = scanner.nextLine();
         flag = steam.bajaDeCliente(dni);
         if (!flag){
@@ -447,9 +454,9 @@ public class Main
         boolean flag;
 
         if (steam.muestraDadosDeBajaUsuarios().length()>0){
-            System.out.println("CLIENTES DADOS DE BAJA");
+            System.out.println("USUARIOS DADOS DE BAJA");
             System.out.println(steam.muestraDadosDeBajaUsuarios());
-            System.out.println("Ingrese DNI del cliente: ");
+            System.out.println("Ingrese usuario: ");
             dni = scanner.nextLine();
             flag = steam.altaDeCliente(dni);
             if (!flag){

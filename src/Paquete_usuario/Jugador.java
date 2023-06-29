@@ -103,14 +103,14 @@ public class Jugador extends Usuario implements Serializable, ICategoria
         return Objects.hash(mail, isActivo, coleccion, categoria);
     }
 
-    //@Override
-  /*  public String toString() {
+    @Override
+    public String toString() {
         return  super.toString()+
                 "mail='" + mail + '\'' +
-                ", isActivo=" + isActivo +'}'+"\n"+
-                muestraColeccion()
+                ", isActivo=" + isActivo +'}'+"\n"
+                //+muestraColeccion()
                 ;
-    }*/
+    }
      public String muestraColeccion()
      {
          String devolver=new String();

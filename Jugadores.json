@@ -1,7 +1,7 @@
 [
   {
     "mail": "fra",
-    "isActivo": false,
+    "isActivo": true,
     "coleccion": {
       "coleccion": {
         "Air Conflicts: Pacific Carriers": {
@@ -40,7 +40,7 @@
   },
   {
     "mail": "fra",
-    "isActivo": false,
+    "isActivo": true,
     "coleccion": {
       "coleccion": {
         "5 Star Wrestling: ReGenesis": {
