@@ -1,8 +1,6 @@
 package Compania;
 
 import Excepciones.JuegoYaEnColeccionException;
-import Interface.ICategoria;
-import compra_juego.JuegoFuncional;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -37,10 +37,7 @@ public class Admin extends Usuario implements Serializable
                 '}';
     }
 
-    @Override
-    public void agregarColeccion(JuegoFuncional a) throws JuegoYaEnColeccionException {
 
-    }
 
 
 }

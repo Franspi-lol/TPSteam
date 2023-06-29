@@ -2,8 +2,6 @@ package Paquete_usuario;
 
 import Compania.Coleccion;
 import Excepciones.JuegoYaEnColeccionException;
-import Interface.ICategoria;
-import compra_juego.JuegoNOUSAR;
 import compra_juego.JuegoFuncional;
 
 import java.io.Serializable;
@@ -11,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
-public class Jugador extends Usuario implements Serializable, ICategoria
+public class Jugador extends Usuario implements Serializable
 {
     private String mail;
     private boolean isActivo;
@@ -35,7 +33,7 @@ public class Jugador extends Usuario implements Serializable, ICategoria
         this.mail = mail;
         this.isActivo = isActivo;
         setId(getId());
-        setCategoria(categoria);
+        //setCategoria(categoria);
         coleccion=new Coleccion<>();
     }
 
@@ -51,14 +49,7 @@ public class Jugador extends Usuario implements Serializable, ICategoria
         return isActivo;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
 
-    @Override
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
     public void setActivo(boolean activo) {
         isActivo = activo;
@@ -67,6 +58,11 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public Coleccion<String, JuegoFuncional> getColeccion() {
         return coleccion;
     }
+
+    /**
+     * comprobar si el usuario ya tiene una coleccion iniciada
+     * @return-true para si, false para no
+     */
     public boolean EstadoColeccion()
     {
         if (coleccion!=null)
@@ -111,6 +107,11 @@ public class Jugador extends Usuario implements Serializable, ICategoria
                 //+muestraColeccion()
                 ;
     }
+
+    /**
+     * Muestra la coleccion
+     * @return-Los juegos de la coleccion
+     */
      public String muestraColeccion()
      {
          String devolver=new String();

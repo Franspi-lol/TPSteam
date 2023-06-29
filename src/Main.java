@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main
 {
 
@@ -119,9 +118,7 @@ public class Main
                                     compra = cancelarCompra();
                                     System.out.println("COMPRA CANCELADA");
                                     break;
-                                //case 8:
-                                  //  System.out.println(((Jugador) usr).muestraHistorialCompras());
-                                    //break;
+
                             }
                         } while (opcCompra != 0);
                         break;
@@ -278,25 +275,7 @@ public class Main
 
 
     }
-/*
-        public static void nuevoProducto (Supermercado mercado) {
-        Producto producto = new Producto();
-        System.out.println("Nombre del producto: ");
-        producto.setNombreProducto(scanner.nextLine());
-        System.out.println("Marca del producto: ");
-        producto.setMarcaProducto(scanner.nextLine());
-        System.out.println("Precio del producto: ");
-        producto.setPrecioProducto(scanner.nextDouble());
-        System.out.println("Stock Actual del producto: ");
-        producto.setStockProducto(scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("Comentario: ");
-        producto.setComentario(scanner.nextLine());
-        System.out.println("Categoria: ");
-        producto.setCategoria(scanner.nextLine());
-        mercado.nuevoProducto(producto);
-    }
-*/
+
         public static void muestraPorCategoria(Steam steam){
         int categoria;
         String categoriaElejida=new String();
@@ -359,66 +338,7 @@ public class Main
         }
     }
 
-       /* public static void restockearProducto (Steam mercado){
-        int idProducto;
-        int cantidad;
-        boolean flag;
-        System.out.println("Ingrese id de producto: ");
-        idProducto = scanner.nextInt();
-        flag = mercado.BuscaProducto(idProducto);
-        if (!flag){
-            System.out.println("ERROR, ID INCORRECTO O SE DESACTIVÓ EL PRODUCTO");
-        }
-        else{
-            System.out.println("Ingrese cantidad para reestockear");
-            cantidad = scanner.nextInt();
-            flag = mercado.restockProducto(idProducto, cantidad);
-            if(!flag){
-                System.out.println("ERROR, REINTENTE");
-            }
-            else{
-                System.out.println("INGRESO DE STOCK CORRECTO");
-            }
-        }
-    }
-    */
 
-/*
-        public static void bajaProducto (Steam steam){
-        String nombre;
-        boolean flag;
-        JuegoFuncional juego=new JuegoFuncional();
-        System.out.println("Ingrese el nombre del juego: ");
-         nombre= scanner.nextLine();
-        flag = steam.bajaDeProducto(nombre);
-        if (!flag){
-            System.out.println("ERROR, EL PRODUCTO NO SE ENCUENTRA O YA ESTA DESACTIVADO");
-        }
-        else{
-            System.out.println("PRODUCTO DADO DE BAJA CON EXITO");
-        }
-    }
-
-        public static void altaProducto (Steam steam){
-        String nombre;
-        boolean flag;
-        if (steam.muestraDadosDeBajaProductos().length()>0) {
-            System.out.println("PRODUCTOS DADOS DE BAJA");
-            System.out.println(steam.muestraDadosDeBajaProductos());
-            System.out.println("Ingrese Nombre del Juego: ");
-            nombre = scanner.nextLine();
-            flag = steam.altaDeProducto(nombre);
-            if (!flag) {
-                System.out.println("ERROR, EL JUEGO NO SE ENCUENTRA O YA ESTA DADO DE ALTA");
-            } else {
-                System.out.println("PRODUCTO DADO DE ALTA CON EXITO");
-            }
-        }
-        else{
-            System.out.println("NO HAY PRODUCTOS DADOS DE BAJA");
-        }
-    }
-*/
         public static void bajaCliente (Steam steam){
         String dni;
         boolean flag;
@@ -661,24 +581,7 @@ public class Main
             }
         }while (opc != 0);
     }
-/*
-        public static void comentar(Steam steam){
-        int i;
-        String nombre, comentario;
-        System.out.println("ingrese el nombre del juego");
-        nombre = scanner.nextLine();
-        i = steam.buscarJuegoNombre(nombre);
-        if (i < 0){
-            System.out.println("ERROR, EL PRODUCTO NO EXISTE O FUE DADO DE BAJA...");
-        }
-        else{
-            System.out.println("Deje su comentario");
-            comentario=scanner.nextLine();
-            steam.dejarUnComentario(comentario, i);
-        }
 
-    }
-*/
 
 
 }

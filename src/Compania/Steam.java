@@ -1,5 +1,6 @@
 package Compania;
 
+import Interface.IMuestra;
 import ManagerArchivos.LecturaEscritura;
 import Paquete_usuario.Admin;
 import Paquete_usuario.Jugador;
@@ -9,7 +10,7 @@ import compra_juego.JuegoFuncional;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-public class Steam {
+public class Steam implements IMuestra {
     private String nombreSteam;
     private LinkedHashSet<Jugador> usuarios;
     private ArrayList<JuegoFuncional> listadoJuegos;
@@ -207,57 +208,7 @@ public class Steam {
 
         return flag;
     }
-/*
-    public boolean restockProducto (int id, int cantidad){
-        boolean flag = false;
-        for (Producto producto : listadoProductos){
-            if(producto.getIdProducto() == id){
-                cantidad += producto.getStockProducto();
-                producto.setStockProducto(cantidad);
-                flag = true;
-            }
-        }
-        return flag;
-    }
-*/
-    /*
-    public boolean bajaDeProducto (String nombre){
-        boolean flag = false;
-        for (Juego juego : listadoProductos){
-            if (juego.getIdProducto() == id){
-                if (juego.isActivo()){
-                    juego.setActivo(false);
-                    flag = true;
-                }
-            }
-        }
-        return flag;
-    }
 
-    public String muestraDadosDeBajaProductos (){
-        StringBuilder sb = new StringBuilder();
-        for (Juego juego : listadoJuegos){
-            if (!juego.isActivo()){
-                sb.append(juego);
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
-    }
-
-    public boolean altaDeProducto (String nombre){
-        boolean flag = false;
-        for (Juego juego : listadoJuegos){
-            if (juego.getGame() == nombre){
-                if (!juego.isActivo()){
-                    juego.setActivo(true);
-                    flag = true;
-                }
-            }
-        }
-        return flag;
-    }
-*/
     public boolean bajaDeCliente(String nombreUsuario){
         boolean flag = false;
         for (Usuario usuarioAux: usuarios){
@@ -320,30 +271,7 @@ public class Steam {
     }
 
 
-/*
-    public void dejarUnComentario(String comentario, int i)
-    {
-        listadoJuegos.get(i).setComentario(comentario);
-    }
-*/
-    /*
-    public boolean controlStrockProducto (int idProducto, int cantidad) {
-        boolean flag = false;
-        int aux = 0;
-        for (Juego juego : listadoProductos) {
-            if (juego.getIdProducto() == idProducto) {
-                if (cantidad <= juego.getStockProducto()) {
-                    aux = juego.getStockProducto() - cantidad;
-                    juego.setStockProducto(aux);
-                    flag = true;
-                }
-            }
 
-        }
-        return flag;
-    }
-
-*/
 
     /**
      * Para reiniciar las bases de datos

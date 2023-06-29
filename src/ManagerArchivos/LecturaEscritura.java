@@ -16,6 +16,10 @@ import java.util.*;
 
 public class LecturaEscritura extends JsonUtiles
 {
+    /**
+     * lee el archivo de jugadores
+     * @return-LinkedHashSet<Jugador></Jugador>
+     */
    public LinkedHashSet<Jugador> leeJugadores ()
    {
        /*
@@ -52,6 +56,10 @@ public class LecturaEscritura extends JsonUtiles
        return jugadores;
    }
 
+    /**
+     * Graba el linkedHashSet de Jugadores al json
+     * @param jugadores
+     */
     public void grabaJugadores (LinkedHashSet<Jugador> jugadores)
     {
         LinkedHashSet<Jugador> aux=new LinkedHashSet<>();

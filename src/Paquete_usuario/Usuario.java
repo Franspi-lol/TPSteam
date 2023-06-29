@@ -86,5 +86,5 @@ public abstract class Usuario implements Serializable
                 ;
     }
 
-    public abstract void agregarColeccion(JuegoFuncional a) throws JuegoYaEnColeccionException;
+    //public abstract void agregarColeccion(JuegoFuncional a) throws JuegoYaEnColeccionException;
 }
