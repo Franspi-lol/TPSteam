@@ -1,0 +1,11 @@
+[
+  {
+    "mail": "pru@",
+    "isActivo": false,
+    "nombre": "prueba",
+    "apellido": "prueba",
+    "usuario": "prueba",
+    "contrasena": "prueba",
+    "idUsuario": 2
+  }
+]
