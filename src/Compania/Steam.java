@@ -18,7 +18,10 @@ public class Steam {
         usuarios = new LinkedHashSet<>();
         listadoJuegos = new ArrayList<>();
     }
+    public void nuevoAdmin (Usuario usu)
+    {
 
+    }
     public void nuevoUsuario (Jugador usuario){
         usuarios.add(usuario);
     }

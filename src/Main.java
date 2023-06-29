@@ -35,9 +35,9 @@ public class Main
         scanner = new Scanner(System.in);
         Steam steam = new Steam("Steamcito");
         lee (lye,steam);
-        cargarAdmins(steam);
+        Admin a= cargarAdmins(steam);
         System.out.println(steam.getNombreSteam());
-        Usuario usr =  Login(steam);
+        Usuario usr =  Login(steam, a);
         Carrito<JuegoFuncional> compra;
         if (usr instanceof Admin) {
             do {
@@ -180,7 +180,7 @@ public class Main
         System.out.println("SELECCIONE UNA OPCION: ");
     }
 
-        public static Usuario Login (Steam steam) {
+        public static Usuario Login (Steam steam, Admin admin) {
         String usuario, contrasena;
         char opc;
         Usuario usr;
@@ -190,7 +190,15 @@ public class Main
             usuario = scanner.nextLine();
         System.out.println("Contraseña");
         contrasena = scanner.nextLine();
-        usr = steam.buscarUsuarioLogin(usuario, contrasena);
+        if (usuario.equals(admin.getUsuario())&&contrasena.equals(admin.getContrasena()))
+        {
+            usr=admin;
+        }
+        else
+        {
+            usr = steam.buscarUsuarioLogin(usuario, contrasena);
+        }
+
         if (usr != null) {
             if (usr instanceof Jugador){
                 if (!((Jugador) usr).isActivo()){
@@ -252,13 +260,14 @@ public class Main
         return jugador;
     }
 
-        public static ArrayList<Admin> cargarAdmins (Steam steam){
-        ArrayList<Admin> aux=new ArrayList<>();
+        public static Admin cargarAdmins (Steam steam){
+        //ArrayList<Admin> aux=new ArrayList<>();
         Admin admin1 = new Admin("Ivan", "Badoza", "Ivo", "ivo", "Jefe");
-        Admin admin2= new Admin("Franco", "Bernardele", "Bernar", "ber", "Jefe");
-        aux.add(admin2);
-        aux.add(admin1);
-        return aux;
+        //Admin admin2= new Admin("Franco", "Bernardele", "Bernar", "ber", "Jefe");
+        //aux.add(admin2);
+        //aux.add(admin1);
+        //return aux;
+            return admin1;
 
 
     }
