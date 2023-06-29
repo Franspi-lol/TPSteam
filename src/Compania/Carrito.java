@@ -11,7 +11,7 @@ public class Carrito<T>
     private Date fecha;
     private String tipoPago;
     private boolean isPago;
-    private double descuento;
+    //private double descuento;
     private ArrayList<T> lista;
     private double precioTotalCompra;
 
@@ -58,12 +58,7 @@ public class Carrito<T>
         return isPago;
     }
 
-    /**
-     * @return the descuento
-     */
-    public double getDescuento() {
-        return descuento;
-    }
+
 
 
     /**
@@ -94,12 +89,7 @@ public class Carrito<T>
         this.isPago = isPago;
     }
 
-    /**
-     * @param descuento the descuento to set
-     */
-    public void setDescuento(double descuento) {
-        this.descuento = descuento;
-    }
+
 
     /**
      * @return the lista

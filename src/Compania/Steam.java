@@ -56,9 +56,7 @@ public class Steam implements IMuestra {
         return nombreSteam;
     }
 
-    public void setNombreSupermercado(String nombreSupermercado) {
-        this.nombreSteam = nombreSupermercado;
-    }
+
 
     public Usuario buscarUsuarioLogin (String usr, String pass){
         for (Usuario usuario : usuarios){
@@ -167,15 +165,7 @@ public class Steam implements IMuestra {
         return sb.toString();
     }
 
-    public String buscaUnSoloProducto (String nombreJuego){
-        StringBuilder sb = new StringBuilder();
-        for (JuegoFuncional juego : listadoJuegos){
-            if (juego.getGame().equals(nombreJuego)){
-                sb.append(juego);
-            }
-        }
-        return sb.toString();
-    }
+
 
     public JuegoFuncional buscarProducto (String nombreJuego){
         JuegoFuncional aux = new JuegoFuncional();
@@ -197,17 +187,7 @@ public class Steam implements IMuestra {
         return usr;
     }
 
-    public boolean BuscaProducto (String nombreJuego){
-        boolean flag = false;
-        for (JuegoFuncional juego : listadoJuegos){
-            if (juego.getGame().equals(nombreJuego)){
 
-                    flag = true;
-                }
-            }
-
-        return flag;
-    }
 
     public boolean bajaDeCliente(String nombreUsuario){
         boolean flag = false;

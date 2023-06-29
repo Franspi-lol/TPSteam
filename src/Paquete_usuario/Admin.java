@@ -20,14 +20,6 @@ public class Admin extends Usuario implements Serializable
         this.cargo = cargo;
     }
 
-    public String getCargo()
-    {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
 
     @Override
     public String toString() {

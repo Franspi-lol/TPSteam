@@ -339,11 +339,11 @@ public class Main
 
 
         public static void bajaCliente (Steam steam){
-        String dni;
+        String nombre;
         boolean flag;
         System.out.println("Ingrese Usuario: ");
-        dni = scanner.nextLine();
-        flag = steam.bajaDeCliente(dni);
+        nombre = scanner.nextLine();
+        flag = steam.bajaDeCliente(nombre);
         if (!flag){
             System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE BAJA");
         }
@@ -353,11 +353,11 @@ public class Main
     }
 
         public static void bajaClienteCliente (Steam steam, LecturaEscritura lye){
-        String dni;
+        String nombre;
         boolean flag;
         System.out.println("Ingrese nombre de usuario: ");
-        dni = scanner.nextLine();
-        flag = steam.bajaDeCliente(dni);
+        nombre = scanner.nextLine();
+        flag = steam.bajaDeCliente(nombre);
         if (!flag){
             System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE BAJA");
         }
@@ -369,15 +369,15 @@ public class Main
     }
 
         public static void altaCliente (Steam steam){
-        String dni;
+        String nombre;
         boolean flag;
 
         if (steam.muestraDadosDeBajaUsuarios().length()>0){
             System.out.println("USUARIOS DADOS DE BAJA");
             System.out.println(steam.muestraDadosDeBajaUsuarios());
             System.out.println("Ingrese usuario: ");
-            dni = scanner.nextLine();
-            flag = steam.altaDeCliente(dni);
+            nombre = scanner.nextLine();
+            flag = steam.altaDeCliente(nombre);
             if (!flag){
                 System.out.println("ERROR, EL CLIENTE NO SE ENCUENTRA O YA ESTA DADO DE ALTA");
             }
@@ -420,13 +420,13 @@ public class Main
                 }
             }while(tipoPago==0);
 
-       //     System.out.println("EL TOTAL A PAGAR ES:" + formato.format(PrecioTotalConDescuento(carrito)));
+
             System.out.println("PARA REALIZAR EL PAGO PRESIONE 1, DE LO CONTRARIO PRESIONE 2: ");
             aux=scanner.nextInt();
             if(aux==1)
             {
                 carrito.setPago(true);
-             //   carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
+
                 ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
                 aux1=carrito.getLista();
                 if (usr.estadoColeccion())
@@ -457,42 +457,7 @@ public class Main
         return false;
     }
 
-        public static double PrecioTotalConDescuento(Carrito<Compra>unProducto) {
-        double total=0;
-        double aplicarDescuento=0;
-        double descuentoAplicado=0;
-        for (int i=0;i<unProducto.getLista().size();i++)
-        {
 
-            total+=unProducto.getLista().get(i).getPrecio();
-
-        }
-        if (unProducto.getTipoPago().equals("Efectivo"))
-        {
-            unProducto.setDescuento(0.10);
-            aplicarDescuento = total * unProducto.getDescuento();
-            descuentoAplicado = total - aplicarDescuento;
-        }
-        else if (unProducto.getTipoPago().equals("Tarjeta Credito")){
-            unProducto.setDescuento(0.15);
-            aplicarDescuento = total * unProducto.getDescuento();
-            descuentoAplicado = total + aplicarDescuento;
-        }
-        else if (unProducto.getTipoPago().equals("Tarjeta Debito")){
-            unProducto.setDescuento(0.10);
-            aplicarDescuento = total * unProducto.getDescuento();
-            descuentoAplicado = total - aplicarDescuento;
-        }
-        else if (unProducto.getTipoPago().equals("MercadoPago")) {
-            unProducto.setDescuento(0.20);
-            aplicarDescuento = total * unProducto.getDescuento();
-            descuentoAplicado = total + aplicarDescuento;
-        }
-        else {
-            descuentoAplicado=(float)total;
-        }
-        return descuentoAplicado;
-    }
 
         public static Carrito<JuegoFuncional> cancelarCompra(){
         return new Carrito<>();
