@@ -104,6 +104,19 @@
     "isActivo": true,
     "coleccion": {
       "coleccion": {
+        "#Funtime": {
+          "game": "#Funtime",
+          "gameLink": "null",
+          "year": 2020,
+          "genre": "Arcade",
+          "dev": "One Guy Games",
+          "devLink": "null",
+          "publisher": "The Quantum Astrophysicists Guild",
+          "publisherLink": "null",
+          "platform": "the Switch",
+          "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+          "price": 47
+        },
         "AFL Evolution 2": {
           "game": "AFL Evolution 2",
           "gameLink": "null",
@@ -116,6 +129,19 @@
           "platform": "the Switch",
           "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
           "price": 56
+        },
+        "Aaero": {
+          "game": "Aaero",
+          "gameLink": "https://en.wikipedia.org/wiki/Aaero",
+          "year": 2018,
+          "genre": "Action - rhythm",
+          "dev": "Mad Fellows",
+          "devLink": "null",
+          "publisher": "JP: S2 Entertainment - WW: Mad Fellows",
+          "publisherLink": "https://en.wikipedia.org/wiki/Japan: S2 Entertainment",
+          "platform": "the Switch",
+          "platformLink": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+          "price": 18
         },
         "Agent A: A Puzzle in Disguise": {
           "game": "Agent A: A Puzzle in Disguise",

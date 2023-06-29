@@ -108,15 +108,15 @@ public class Steam {
     }
 
     public String muestraProductosParaCliente (){
-        StringBuilder sb = new StringBuilder();
+        //StringBuilder sb = new StringBuilder();
+        String nuevo=new String();
         LecturaEscritura lye= new LecturaEscritura();
         for (JuegoFuncional juego : listadoJuegos){
 
-                sb.append(lye.leeJuego());
-                sb.append("\n");
+                nuevo=nuevo+juego.getGame().toString()+"\n";
 
         }
-        return sb.toString();
+        return nuevo;
     }
 
     public String muestraProductosPorCategoria (String plataforma){
@@ -130,8 +130,29 @@ public class Steam {
         return sb.toString();
     }
 
-    public String muestraProductosPorCategoriaCliente (String plataforma){
+    public String elejirPlataforma (int plataformaElejida)
+    {
+        String plataforma = new String();
+        if (plataformaElejida==1)
+        {
+            plataforma="the Playstation 4";
+
+        }
+        if (plataformaElejida==2)
+        {
+            plataforma= "the Switch";
+        }
+        if (plataformaElejida==3)
+        {
+            plataforma= "the XBOX";
+        }
+        return plataforma;
+    }
+
+    public String muestraProductosPorCategoriaCliente (String plataforma){///solo elejir entre 3
         StringBuilder sb = new StringBuilder();
+        //String plataforma=new String();
+
         for (JuegoFuncional juego : listadoJuegos){
             if (juego.getPlatform().equals(plataforma)){
                        sb.append(juego.getGame());

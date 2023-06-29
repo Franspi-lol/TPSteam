@@ -37,9 +37,9 @@ public class Main
         lee (lye,steam);
         cargarAdmins(steam);
         System.out.println(steam.getNombreSteam());
-        Jugador usr = (Jugador) Login(steam);
+        Usuario usr =  Login(steam);
         Carrito<JuegoFuncional> compra;
-        if (/*usr instanceof Admin*/1==2) {
+        if (usr instanceof Admin) {
             do {
                 menuAdmin();
                 opc = scanner.nextInt();
