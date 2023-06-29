@@ -63,7 +63,7 @@ public class Jugador extends Usuario implements Serializable
      * comprobar si el usuario ya tiene una coleccion iniciada
      * @return-true para si, false para no
      */
-    public boolean EstadoColeccion()
+    public boolean estadoColeccion()
     {
         if (coleccion!=null)
         {

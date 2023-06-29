@@ -12,7 +12,6 @@ import compra_juego.JuegoFuncional;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -430,7 +429,7 @@ public class Main
              //   carrito.setPrecioTotalCompra(PrecioTotalConDescuento(carrito));
                 ArrayList<JuegoFuncional> aux1 =new ArrayList<>();
                 aux1=carrito.getLista();
-                if (usr.EstadoColeccion())
+                if (usr.estadoColeccion())
                 {
                     for (JuegoFuncional a : carrito.getLista())
                     {

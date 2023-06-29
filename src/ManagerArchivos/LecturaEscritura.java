@@ -14,6 +14,11 @@ import java.util.LinkedHashSet;
 
 import java.util.*;
 
+/**
+ * Esta clase se encarga de la lectura y escritura de los archivos de juegos y jugadores
+ * @author Franco Bernardele
+ * @Version 3.0
+ */
 public class LecturaEscritura extends JsonUtiles
 {
     /**
