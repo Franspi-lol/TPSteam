@@ -1,7 +1,7 @@
 [
   {
     "mail": "fra",
-    "isActivo": true,
+    "isActivo": false,
     "coleccion": {
       "coleccion": {
         "Air Conflicts: Pacific Carriers": {
@@ -40,7 +40,7 @@
   },
   {
     "mail": "fra",
-    "isActivo": true,
+    "isActivo": false,
     "coleccion": {
       "coleccion": {
         "5 Star Wrestling: ReGenesis": {
@@ -100,7 +100,7 @@
     "idUsuario": 5
   },
   {
-    "mail": "prueba@",
+    "mail": "franck@",
     "isActivo": true,
     "coleccion": {
       "coleccion": {
@@ -158,10 +158,19 @@
         }
       }
     },
-    "nombre": "prueba",
-    "apellido": "",
-    "usuario": "prueba",
-    "contrasena": "prueba",
+    "nombre": "tuvieja",
+    "apellido": "hola",
+    "usuario": "pruebaa",
+    "contrasena": "pruebaa",
     "idUsuario": 6
+  },
+  {
+    "mail": "fdsaf@",
+    "isActivo": true,
+    "nombre": "fra",
+    "apellido": "dsad",
+    "usuario": "prueba",
+    "contrasena": "aaa",
+    "idUsuario": 7
   }
 ]

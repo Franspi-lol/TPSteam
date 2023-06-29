@@ -113,9 +113,9 @@ public class Main
                                     compra = cancelarCompra();
                                     System.out.println("COMPRA CANCELADA");
                                     break;
-                                case 8:
+                                //case 8:
                                   //  System.out.println(((Jugador) usr).muestraHistorialCompras());
-                                    break;
+                                    //break;
                             }
                         } while (opcCompra != 0);
                         break;
@@ -162,7 +162,6 @@ public class Main
         System.out.println("2. VER JUGADOR ACTUAL");
         System.out.println("3. COMPRAR");
         System.out.println("4. DAR DE BAJA LA CUENTA");
-        System.out.println("6. DEJAR UN COMENTARIO DEL PRODUCTO");
         System.out.println("0. SALIR");
         System.out.println("SELECCIONE UNA OPCION: ");
     }
@@ -176,7 +175,7 @@ public class Main
         System.out.println("5. VER CARRITO");
         System.out.println("6. FINALIZAR PEDIDO");
         System.out.println("7. CANCELAR PEDIDO");
-        System.out.println("8. VER HISTORIAL DE COMPRA");///SE PODRIA MODIFICAR
+       // System.out.println("8. VER HISTORIAL DE COMPRA");///SE PODRIA MODIFICAR
         System.out.println("0. ATRAS");
         System.out.println("SELECCIONE UNA OPCION: ");
     }
@@ -283,10 +282,20 @@ public class Main
     }
 */
         public static void muestraPorCategoria(Steam steam){
-        String categoria;
-        System.out.println("INGRESE CATEGORIA: ");
-        categoria = scanner.nextLine();
-        System.out.println(steam.muestraProductosPorCategoria(categoria));
+        int categoria;
+        String categoriaElejida=new String();
+        System.out.println("INGRESE PLATAFORMA: \n1: Playstation 4\n2: Switch\n3:XBOX");
+
+        categoria = scanner.nextInt();
+        if (categoria==1||categoria==2||categoria==3)
+        {
+            categoriaElejida=steam.elejirPlataforma(categoria);
+            System.out.println(steam.muestraProductosPorCategoria(categoriaElejida));
+        }else
+        {
+            System.out.println("PLATAFORMA INCORRECTA");
+        }
+
     }
 
         public static void muestraJuego(Steam steam){
@@ -411,7 +420,7 @@ public class Main
         public static void bajaClienteCliente (Steam steam, LecturaEscritura lye){
         String dni;
         boolean flag;
-        System.out.println("Ingrese DNI de cliente: ");
+        System.out.println("Ingrese nombre de usuario: ");
         dni = scanner.nextLine();
         flag = steam.bajaDeCliente(dni);
         if (!flag){
@@ -625,11 +634,11 @@ public class Main
                         } else {
                             usr.setUsuario(usuario);
                         }
-                    } while (steam.buscarPorNombreUsuarioLogin(usuario));
+                    } while (steam.buscarPorNombreUsuarioLogin(usuario)==false);
                     break;
 
-                case 6:
-                    System.out.println("contraseña: ");
+                case 5:
+                    System.out.println("contrasenia: ");
                     usr.setContrasena(scanner.nextLine());
                     ((Jugador) usr).setActivo(true);
                     break;
