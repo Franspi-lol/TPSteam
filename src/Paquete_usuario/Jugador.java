@@ -131,7 +131,13 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public void agregarColeccion (JuegoFuncional juego) throws JuegoYaEnColeccionException
     {
         coleccion=new Coleccion<>();
-        coleccion.agregarAColeccion(juego.getGame(),juego);
+        try {
+            coleccion.agregarAColeccion(juego.getGame(),juego);
+        }catch (JuegoYaEnColeccionException e)
+        {
+            e.getMessage();
+        }
+
     }
 
     /**
@@ -142,7 +148,12 @@ public class Jugador extends Usuario implements Serializable, ICategoria
     public void agregarColeccionConColeccion (JuegoFuncional juego) throws JuegoYaEnColeccionException
     {
         //coleccion=new Coleccion<>();
-        coleccion.agregarAColeccion(juego.getGame(),juego);
+        try {
+            coleccion.agregarAColeccion(juego.getGame(),juego);
+        }catch (JuegoYaEnColeccionException e)
+        {
+            e.getMessage();
+        }
     }
 
 

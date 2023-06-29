@@ -80,7 +80,7 @@ public class Main
                         modificarDatos(steam, usr);
                         break;
                     case 2:
-                        System.out.println(usr);
+                        System.out.println(usr.toString());
                         break;
                     case 3:
                         compra = new Carrito<>();

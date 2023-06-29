@@ -78,10 +78,10 @@ public abstract class Usuario implements Serializable
     @Override
     public String toString() {//
         return  "\nID=" + idUsuario +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", contrasena='" + contrasena + '\''
+                "\nnombre='" + nombre + '\'' +
+                ", \napellido='" + apellido + '\'' +
+                ", \nusuario='" + usuario + '\'' +
+                ", \ncontrasena='" + contrasena + '\''
 
                 ;
     }

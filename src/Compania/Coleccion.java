@@ -24,15 +24,18 @@ public class Coleccion<K,V>
     public boolean agregarAColeccion (K key, V variable) throws JuegoYaEnColeccionException
     {
         boolean agregado = false;
-        if (coleccion.containsKey(key))
-        {
-            throw new JuegoYaEnColeccionException("El juego ya estaba en coleccion");
-        }
-        else
-        {
-            coleccion.put(key,variable);
-            agregado=true;
-        }
+
+            if (coleccion.containsKey(key))
+            {
+                throw new JuegoYaEnColeccionException();
+            }
+            else
+            {
+                coleccion.put(key,variable);
+                agregado=true;
+            }
+
+
         return agregado;
     }
 
